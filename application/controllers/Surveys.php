@@ -414,9 +414,9 @@ class Surveys extends CI_Controller{
 
         $this->session->set_userdata('page','/answer-survey'.'/'.$uuid);
         
-        $this->load->view('templates/header' , array('style' => 'survey'));
+        $this->load->view('templates/header_home' , array('style' => 'survey'));
         $this->load->view('es/app/answer' , $data);
-        $this->load->view('templates/footer' , array('script' => 'survey'));
+        $this->load->view('templates/footer_home' , array('script' => 'survey'));
    }
 
    public function answer_survey()

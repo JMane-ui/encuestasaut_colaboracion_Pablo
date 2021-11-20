@@ -83,7 +83,7 @@
     </div>
 
     <div class="container-fluid" id="main" style="background-image: url('<?= base_url('assets/img/form_background.jpg');?>');">
-        <div class="row justify-content-center mainR" style="height: 42.5vh;min-height: 150px">
+        <div class="row justify-content-center mainR" style="height: 65vh;min-height: 150px; padding: 0.1px;">
             <div class="col-md-4" style="height: 100%" align="center"> 
                 <input type="image" src="<?= base_url('assets/img/uploads/surveys/').$survey_img;?>" id="proj_img" class="shadow" height="100"  style="background-color: rgb(244,244,244);margin-top: 15vh;cursor: pointer;border-radius: 100%;width: 100px"/>
                 <form id="sub-img" method="post" enctype="multipart/form-data">

@@ -4703,8 +4703,8 @@ ul.verticle_bars li {
 /** PNotify **/
 .alert-success {
   color: #ffffff;
-  background-color: rgba(38, 185, 154, 0.88);
-  border-color: rgba(38, 185, 154, 0.88); }
+  background-color: var(--green-color);
+  border-color: var(--green-color); }
 
 .alert-info {
   color: #E9EDEF;

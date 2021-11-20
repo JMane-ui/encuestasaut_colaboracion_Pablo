@@ -1,10 +1,3 @@
-<?= form_open('pages/eng' , array('id'=>'eng')); ?>
-<?= form_close(); ?>
-<?= form_open('pages/fr' , array('id'=>'fr')); ?>
-<?= form_close();?>
-<?= form_open('pages/ar' , array('id'=>'ar')); ?>
-<?= form_close(); ?>
-
 <div style="background-color: white;position: absolute;z-index:2;width: 100%;height: 100%;opacity: 0.7;position: fixed;" id="load">
     <div class="load" >
         <hr/><hr/><hr/><hr/>
@@ -18,8 +11,8 @@
 </div>
 -->
 
-<div class="container-fluid mt-5" id="main" >
-    <div class="row justify-content-center mainR">   
+<div class="container-fluid mt-5" id="main">
+    <div class="row justify-content-center mainR" style="padding: 0.1px;">   
         <div class="col-md-8 col-lg-6 col-xl-5 mb-5" id="test">
             <div class="row justify-content-center mt-4">
                 <div class=" col-md-5 col-lg-5 col-xl-6">

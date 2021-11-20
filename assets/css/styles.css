@@ -1,0 +1,31 @@
+:root {
+
+    --green: #7c942c;
+    --blue: #24345c;
+    --snow: #fffbffff;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+body {
+    background: var(--snow);
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-green {
+    background-color: var(--green);
+    color: white;
+}
+
+.bg-blue {
+    background-color: var(--blue);
+    color: white;
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.text-blue {
+    color: var(--blue);
+}

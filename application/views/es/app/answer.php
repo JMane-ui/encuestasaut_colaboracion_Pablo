@@ -108,52 +108,6 @@ body{
 
 
 
-@media (max-height:808px){
-
-#privacy_container{
-    margin-top:30vh;
-}
-
-
-}
-
-@media (max-height:750px){
-
-#privacy_container{
-    margin-top:60vh;
-}
-
-
-}
-
-@media (max-height:648px){
-
-#privacy_container{
-    margin-top:100vh;
-}
-
-
-}
-
-@media (max-height:550px){
-
-#privacy_container{
-    margin-top:120vh;
-}
-
-
-}
-
-@media (max-height:479px){
-
-#privacy_container{
-    margin-top:200vh;
-}
-
-
-}
-
-
 
 </style>
 <header class="container p-0">
@@ -438,39 +392,9 @@ body{
     
 </footer>
 
-<div class="row justify-content-center" style="position:absolute;height:102%;width:110%;background-color:rgba(100,100,100,0.5);top:0px;display:none" id="privacy_container">
-                        <div class="col-md-7 col-lg-5 shadow" style="margin-top:130vh;background-color:white;height:220px;max-width:700px;" id="privacy">
-                        <div class="row justify-content-end" style="height:10px;">   
-                            
-                                
-                                <button type="button" class="close" aria-label="Close" id="privacy_close" style="margin-right:10px;cursor:pointer">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="row justify-content-center" style="height:50px;">   
-                            
-                                <h1> Política de Privacidad </h1>
-                                
-                            </div>
-                            <div class="row mt-3 justify-content-center" style="height:50px;">   
-                                <p style="padding-left:20px"> Para mejorar su experiencia de encuesta, utilizamos su dirección IP para proporcionar visualizaciones detalladas para la mejor experiencia de encuesta posible </p> 
-                            </div>
-                            <div class="row mt-3 " style="height:30px;">   
-                                <p style="padding-left:20px"> Sin embargo, si lo desea, puede hacerlo aquí : </p> 
-                                
-                            </div>
-                            <div class="row justify-content-center" style="height:50px;font-size:25px;cursor:pointer">   
-                                Localización
-                                <div class="custom-control custom-switch" style="margin-left:10px;margin-top:10px;">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1"   checked>
-                                <label class="custom-control-label" for="customSwitch1" style="cursor:pointer"></label>
-                                </div>
-                            </div>
-                        </div>
-</div>
-<div class="row mt-5 mb-3 justify-content-center" style="height:20px;">
-    <h6 style="color:rgb(130,130,130);font-size:12px"> Al ubicar este formulario, usted acepta nuestra <a style="font-size:12px;font-weight:bold;cursor:pointer;text-decoration:underline;" id="privacy_open"> Política de Privacidad </a></h6>
-<div class="row">
+<div>
+    
+<div>
 
 
 
@@ -589,14 +513,6 @@ body{
                 }
             });
             
-        });
-
-        $( "#privacy_open" ).click(function() {
-         $("#privacy_container").fadeIn(500);
-        });
-
-        $( "#privacy_close" ).click(function() {
-         $("#privacy_container").fadeOut(500);
         });
     });
 

@@ -62,11 +62,12 @@ body{
   position: absolute;
   top: 0;
   left: 0;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
   border:2px solid #2196F3;
 }
+
 .qcm{
     border-radius: 50%;
 }
@@ -95,8 +96,8 @@ body{
 
 /* Style the checkmark/indicator */
 .container .checkbox:after {
-  left: 8px;
-  top: 3px;
+  left: 3px;
+  top: 0px;
   width: 10px;
   height: 15px;
   border: solid white;
@@ -135,21 +136,21 @@ body{
     <?php if ($question['type'] == 'mcq'): ?>
         <!-- QCM -->
         <?php $h = ($question['required'] == 1) ? 100 + ( count($question['options'])*80 ) : 50 + ( count($question['options'])*80 );?>
-        <div class="container-fluid mt-3" style="width: 100%;height: <?= $h;?>px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background:white;">
-                    <div class="row justify-content-center" style="height: 70px;">
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>" class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align: center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
                     </div>
                     <?php if($question['required'] == 1) : ?>
-                        <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70+70) ;?>px;">
+                        <div class="row justify-content-center flex-column">
                     <?php else: ?>
-                        <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70) ;?>px;">
+                        <div class="row justify-content-center flex-column">
                     <?php endif; ?>
                         <?php $opt_id = 0; ?>
                         <?php foreach($question['options'] as $option): ?>
@@ -158,10 +159,10 @@ body{
                                     <div style="float:left;">
                                         <label class="container">
                                             <input type="radio" name="radio<?= $qst_id ;?>" data-id="qst_<?= $qst_id ;?>_opt_<?= $opt_id ;?>">
-                                            <span class="checkmark qcm" style="float: left;font-size: 30px;margin-top: 2px;margin-right: 10px;color: #0079ca;margin-left: 5px;cursor: pointer;"></span>
+                                            <span class="checkmark qcm"></span>
                                         </label>
                                     </div>
-                                    <input readonly type="text" class="shadow qOption" value="<?= $option; ?>" maxlength="30" style="font-size:20px;text-align:center;height: 30px;margin-top: 10px;cursor: pointer;"> 
+                                    <input readonly type="text" class="border-0 qOption" value="<?= $option; ?>" maxlength="30"> 
                                 </div>
                             </div>
                             <?php $opt_id++ ;?>
@@ -179,21 +180,21 @@ body{
     <?php elseif($question['type'] == 'checkbox') : ?>
          <!-- CheckBox -->
          <?php $h = ($question['required'] == 1) ? 100 + ( count($question['options'])*80 ) : 50 + ( count($question['options'])*80 );?>
-         <div class="container-fluid mt-3" style="width: 100%;height: <?= $h ;?>px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background:white;">
-                    <div class="row justify-content-center" style="height: 70px;">
+         <div class="container-fluid mt-3">
+            <div class="row justify-content-center mb-3">
+            <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>"  class="label" style="top:-10px;left: 0px !important;font-size: 25px;color:black;margin-top: 25px;text-align: center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
                     </div>
                     <?php if($question['required'] == 1) : ?>
-                        <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70+70) ;?>px;">
+                        <div class="row justify-content-center flex-column">
                     <?php else: ?>
-                        <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70) ;?>px;">
+                        <div class="row justify-content-center flex-column">
                     <?php endif; ?>
                     <?php $opt_id = 0 ;?>
                     <?php foreach($question['options'] as $option): ?>
@@ -202,10 +203,10 @@ body{
                                     <div style="float:left;">
                                         <label class="container">
                                             <input type="checkbox" data-id="qst_<?= $qst_id ;?>_opt_<?= $opt_id ;?>">
-                                            <span class="checkmark checkbox" style="float: left;font-size: 30px;margin-top: 2px;margin-right: 10px;color: #0079ca;margin-left: 5px;cursor: pointer;"></span>
+                                            <span class="checkmark checkbox"></span>
                                         </label>
                                     </div>
-                                    <input readonly type="text" class="shadow qOption" value="<?= $option; ?>" maxlength="30" style="font-size:20px;text-align:center;height: 30px;margin-top: 10px;cursor: pointer;"> 
+                                    <input readonly type="text" class="border-0 qOption" value="<?= $option; ?>" maxlength="30"> 
                                 </div>
                             </div>
                             <?php $opt_id++ ;?>
@@ -222,18 +223,18 @@ body{
         <!-- End CheckBox -->
     <?php elseif($question['type'] == 'open') : ?>
         <!-- Open -->
-        <div class="container-fluid mt-3" style="width: 100%;height: 600px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                    <div class="row justify-content-center" style="height: 15%;margin-top:2%;">
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>"  class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
                     </div>
-                    <div class="row justify-content-center" style="height: 75%;margin-top:2%;">
+                    <div class="row justify-content-center">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">200 palabras máximo</label>
                             <textarea class="form-control" rows="3" data-id="qst_<?= $qst_id ;?>" ></textarea>
@@ -251,19 +252,19 @@ body{
         <!-- End Open -->
     <?php elseif($question['type'] == 'date') : ?>
         <!-- Date -->
-        <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                    <div class="row justify-content-center" style="height: 20%;margin-top:2%;">
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>" class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
                     </div>
                     
-                    <div class="form-group row" style="height:50%;padding-top:10%;">
+                    <div class="form-group row">
                         <label for="example-date-input" class="col-2 col-form-label">Fecha</label>
                         <div class="col-10">
                             <input class="form-control" type="date" style="text-align: center;" data-id="qst_<?= $qst_id ;?>">
@@ -280,19 +281,19 @@ body{
         <!-- End Date --> 
     <?php elseif($question['type'] == 'time') : ?>
         <!-- Time -->
-        <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                    <div class="row justify-content-center" style="height: 20%;margin-top:2%;">
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>"  class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
                     </div>
                     
-                    <div class="form-group row" style="height:50%;padding-top:10%;">
+                    <div class="form-group row">
                         <label for="example-time-input" class="col-2 col-form-label">Tiempo</label>
                         <div class="col-10">
                             <input class="form-control" type="time" style="text-align: center;" data-id="qst_<?= $qst_id ;?>">
@@ -309,19 +310,19 @@ body{
         <!-- End Time -->
     <?php elseif($question['type'] == 'range') : ?>
         <!-- Range -->
-        <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                    <div class="row justify-content-center" style="height: 20%;margin-top:2%;">
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>"  class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
                     </div>
                     
-                    <div class="form-group row" style="height:50%;padding-top:10%;">
+                    <div class="form-group row">
                         <label for="example-number-input" class="col-2 col-form-label">Desde</label>
                         <div class="col-4">
                             <input class="form-control" type="number" style="text-align: center;" data-id="qst_<?= $qst_id ;?>_range_1">
@@ -344,11 +345,11 @@ body{
         <!-- Valoration -->
         <div class="container-fluid mt-3" style="width: 100%;" >
             <div class="row justify-content-center mb-3" style="margin-top: 5px;">
-                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                    <div class="row justify-content-center" style="height: 15%;margin-top:2%;">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 bg-white rounded shadow-sm">
+                    <div class="row justify-content-center mb-4">
                         <div class="group" > 
                             <span class="highlight"></span> <span class="bar"></span> 
-                            <label id="question<?= $qst_id ;?>"  class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                            <label id="question<?= $qst_id ;?>"  class="label fw-bolder">
                                 <?= $question['question']; ?>
                             </label>
                         </div>
@@ -384,12 +385,12 @@ body{
 <?php endforeach; ?>
     
 <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn"><i class="bi bi-arrow-up-circle-fill h2"></i></button>
-<footer class="row mt-4 mb-1 justify-content-center" style="max-width:1915px;">
-    <button id='btn-send' class="btn btn-success" style="padding:10px;font-size:20px;width:200px">
-        Enviar <i class='fas fa-paper-plane'></i>
-    </button>
-    
-    
+<footer class="row py-4 justify-content-center">
+    <div class="form-group text-center">
+        <button id='btn-send' class="btn btn-sm bg-green">
+            Enviar <i class='fas fa-paper-plane'></i>
+        </button>
+    </div>
 </footer>
 
 <div>

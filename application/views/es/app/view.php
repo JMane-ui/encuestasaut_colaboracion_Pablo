@@ -1,12 +1,3 @@
-
-
-
-<style>
-    body{
-        background-color: rgb(244,244,244);
-        min-height: 500px;
-    }
-</style>
 <div class="right_col" role="main">
 <div class="container-fluid">
     <div class="row justify-content-center mt-3 p-1" style="height: 70px;">
@@ -44,7 +35,7 @@
                 </div>
 
                 <div class="row mt-3" style="height: 70%;z-index: 0" id="imgT">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%" align="center">
+                    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-ride="carousel" style="width: 100%" align="center">
                         <div class="carousel-inner">
                         
                         <div class="carousel-item active">
@@ -581,15 +572,15 @@
 
 
 <div style="display: none;" id="answers_container"> <!-- ICI -->
-    <div class="row justify-content-center mt-4 mb-3" style="height:50px;max-width:1918px">
-        <div style="width:150px; height:100%;background-color:white" class="shadow" align="center">
-            <p style="margin-top:10px;">
+    <div class="row justify-content-center" style="height:50px;max-width:1918px">
+        <div class="text-center">
+            <h6>
                 <?php if( count($answers) > 0 ): ?>
                     Respuesta : <strong id="num_form" style="color:#0079ca">1</strong> / <?=count($answers);?>
                 <?php else:?>
                     Respuesta : <strong id="num_form" style="color:#0079ca">0</strong> / <?=count($answers);?>
                 <?php endif;?>
-            </p>
+                </h6>
         </div>
     </div>
     <script> 
@@ -597,17 +588,7 @@
         var form_num = 1;
     </script>
     
-    <style> 
-    .carousel .carousel-indicators li {
-        background-color: #fff;
-        background-color: rgba(70, 70, 70, 0.25);
-    }
-
-    .carousel .carousel-indicators .active {
-        background-color: #444;
-    }
-    </style>
-    <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-interval="false">
   
     <div class="carousel-inner">
     <?php for( $i=0 ; $i < count($answers) ; $i++ ) : ?>
@@ -620,21 +601,19 @@
             <?php $a = '' ;?>
             <?php if ($question['type'] == 'mcq'): ?>
                 <?php $h = ($question['required'] == 1) ? 100 + ( count($question['options'])*80 ) : 50 + ( count($question['options'])*80 );?>
-                <div class="container-fluid mt-3" style="width: 100%;height: <?= $h;?>px;" >
-                    <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background:white;">
-                            <div class="row justify-content-center" style="height: 70px;">
+                <div class="container-fluid">
+                    <div class="row justify-content-center my-2">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                            <div class="row justify-content-center">
                                 <div class="group" > 
-                                    <span class="highlight"></span> <span class="bar"></span> 
-                                    <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align: center;width: 100%;">
-                                        <?= $question['question']; ?>
-                                    </label>
+                                <span class="highlight"></span> <span class="bar"></span> 
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
                             </div>
                             <?php if($question['required'] == 1) : ?>
-                                <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70+70) ;?>px;">
+                                <div class="row justify-content-center flex-column">
                             <?php else: ?>
-                                <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70) ;?>px;">
+                                <div class="row justify-content-center flex-column">
                             <?php endif; ?>
                                 <?php $opt_id = 0; ?>
                                 <?php foreach( $answers[$i]['answers'] as $ans ): ?>
@@ -642,17 +621,21 @@
                                         <?php $a = $ans['answer'];break; ?>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
+                                <p class="fw-bolder">Respuestas:</p>
                                 <?php foreach($question['options'] as $option): ?>
                                     <div class="group se" > 
-                                        <div style="width:100%;">
-                                            <div style="float:left;">
+                                        <div class="d-flex align-items-center">
+                                            <div>
                                                 <?php if ( $a == $option ) : ?>
-                                                    <i class="fa fa-circle" style="float: left;font-size: 30px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>    
+                                                    <i class="fa fa-circle"></i>    
                                                 <?php else : ?>
-                                                    <i class="far fa-circle" style="float: left;font-size: 30px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>    
+                                                    <i class="far fa-circle"></i>    
                                                 <?php endif; ?>
                                             </div>
-                                            <input readonly type="text" class="shadow qOption" value="<?= $option; ?>" maxlength="30" style="font-size:20px;text-align:center;height: 30px;margin-top: 15px;cursor: pointer;"> 
+
+                                            <input readonly type="text" class="border-0 qOption" value="<?= $option; ?>" maxlength="30"> 
+
+                                            
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
@@ -667,21 +650,19 @@
                 </div>
                 <?php elseif( $question['type'] == 'checkbox' ) : ?>
                     <?php $h = ($question['required'] == 1) ? 100 + ( count($question['options'])*80 ) : 50 + ( count($question['options'])*80 );?>
-                    <div class="container-fluid mt-3" style="width: 100%;height: <?= $h;?>px;" >
-                        <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                            <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background:white;">
-                                <div class="row justify-content-center" style="height: 70px;">
+                    <div class="container-fluid mt-3">
+                        <div class="row justify-content-center my-2">
+                            <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                                <div class="row justify-content-center">
                                     <div class="group" > 
-                                        <span class="highlight"></span> <span class="bar"></span> 
-                                        <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align: center;width: 100%;">
-                                            <?= $question['question']; ?>
-                                        </label>
+                                    <span class="highlight"></span> <span class="bar"></span> 
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                     </div>
                                 </div>
                                 <?php if($question['required'] == 1) : ?>
-                                    <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70+70) ;?>px;">
+                                    <div class="row justify-content-center flex-column">
                                 <?php else: ?>
-                                    <div class="row justify-content-center" style="display:flex;flex-direction:column;align-items: center;height:<?= $h-(70) ;?>px;">
+                                    <div class="row justify-content-center flex-column">
                                 <?php endif; ?>
                                     <?php $opt_id = 0;$ar=array(); ?>
                                     <?php foreach( $answers[$i]['answers'] as $ans ): ?>
@@ -689,17 +670,18 @@
                                             <?php array_push( $ar,$ans['answer'] ); ?>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
+                                    <p class="fw-bolder">Respuestas:</p>
                                     <?php foreach($question['options'] as $option): ?>
                                         <div class="group se" > 
                                             <div style="width:100%;">
                                                 <div style="float:left;">
                                                     <?php if( in_array($option,$ar)  ): ?>
-                                                        <i class="fa fa-check-square" style="float: left;font-size: 30px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>
+                                                        <i class="fa fa-check-square"></i>
                                                     <?php else : ?>
-                                                        <i class="far fa-square" style="float: left;font-size: 30px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>
+                                                        <i class="far fa-square"></i>
                                                     <?php endif;?>
                                                 </div>
-                                                <input readonly type="text" class="shadow qOption" value="<?= $option; ?>" maxlength="30" style="font-size:20px;text-align:center;height: 30px;margin-top: 15px;cursor: pointer;"> 
+                                                <input readonly type="text" class="border-0 qOption" value="<?= $option; ?>" maxlength="30">
                                             </div>
                                         </div>
                                     <?php endforeach; ?>
@@ -713,15 +695,13 @@
                         </div>
                     </div>
             <?php elseif( $question['type'] == 'open' ) : ?>
-                <div class="container-fluid mt-3" style="width: 100%;height: 420px;" >
-                    <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                            <div class="row justify-content-center" style="height: 50px;margin-top:2%;">
+                <div class="container-fluid mt-3">
+                    <div class="row justify-content-center my-2">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                            <div class="row justify-content-center">
                                 <div class="group" > 
                                     <span class="highlight"></span> <span class="bar"></span> 
-                                    <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
-                                        <?= $question['question']; ?>
-                                    </label>
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
                             </div>
                             
@@ -730,11 +710,9 @@
                                     <?php $a = $ans['answer'];break; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                            <div class="row justify-content-center" style="height: 300px;margin-top:2%;">
+                            <div class="row justify-content-center">
                                 <div class="form-group"> <!-- OPEN HERE -->
-                                <div style="height:200px;width:500px;background-color:white;margin-top:50px;overflow-y:scroll" class="shadow">
-                                    <?= $a; ?>
-                                </div>
+                                <p><span class="fw-bolder">Respuesta:</span> <?= $a; ?></p>
                                 </div>
                             </div>
                             <?php if($question['required'] == 1) : ?>
@@ -747,15 +725,13 @@
                 </div>
 
                 <?php elseif( $question['type'] == 'valoration' ) : ?>
-                <div class="container-fluid mt-3" style="width: 100%;height: 420px;" >
-                    <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
-                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                            <div class="row justify-content-center" style="height: 50px;margin-top:2%;">
+                <div class="container-fluid mt-3">
+                    <div class="row justify-content-center my-2">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                            <div class="row justify-content-center">
                                 <div class="group" > 
                                     <span class="highlight"></span> <span class="bar"></span> 
-                                    <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
-                                        <?= $question['question']; ?>
-                                    </label>
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
                             </div>
                             
@@ -764,11 +740,9 @@
                                     <?php $a = $ans['answer'];break; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                            <div class="row justify-content-center" style="height: 300px;margin-top:2%;">
+                            <div class="row justify-content-center">
                                 <div class="form-group"> <!-- OPEN HERE -->
-                                <div style="height:200px;width:500px;background-color:white;margin-top:50px;overflow-y:scroll" class="shadow">
-                                    <?= $a; ?>
-                                </div>
+                                <p><span class="fw-bolder">Valoración de</span> <?= $a; ?></p>
                                 </div>
                             </div>
                             <?php if($question['required'] == 1) : ?>
@@ -781,15 +755,13 @@
                 </div>
 
             <?php elseif( $question['type'] == 'date' ) : ?>
-                <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
-                    <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 20px;">
-                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                            <div class="row justify-content-center" style="height: 50px;margin-top:2%;">
+                <div class="container-fluid mt-3">
+                    <div class="row justify-content-center my-2">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                            <div class="row justify-content-center">
                                 <div class="group" > 
-                                    <span class="highlight"></span> <span class="bar"></span> 
-                                    <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
-                                        <?= $question['question']; ?>
-                                    </label>
+                                <span class="highlight"></span> <span class="bar"></span> 
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
                             </div>
                             <?php foreach( $answers[$i]['answers'] as $ans ): ?>
@@ -797,8 +769,8 @@
                                     <?php $a = $ans['answer'];break; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                            <div class="row justify-content-center" style="height:100px;margin-top:5%;">
-                                <input readonly type="text" class="shadow qOption" value="<?= $a ?>" maxlength="30" style="font-size:20px;text-align:center;height: 30px;margin-top: 10px;cursor: pointer;"> 
+                            <div class="row justify-content-center">
+                                <input readonly type="text" class="border-0 qOption" value="<?= $a ?>" maxlength="30"> 
                             </div>
                             <?php if($question['required'] == 1) : ?>
                                 <div class="row justify-content-center" style="height: 100px;">
@@ -809,15 +781,13 @@
                     </div>
                 </div>
             <?php elseif( $question['type'] == 'time' ): ?>
-                <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
-                    <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 20px;">
-                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                            <div class="row justify-content-center" style="height: 50px;margin-top:2%;">
+                <div class="container-fluid mt-3">
+                    <div class="row justify-content-center my-2">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                            <div class="row justify-content-center">
                                 <div class="group" > 
-                                    <span class="highlight"></span> <span class="bar"></span> 
-                                    <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
-                                        <?= $question['question']; ?>
-                                    </label>
+                                <span class="highlight"></span> <span class="bar"></span> 
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
                             </div>
                             <?php foreach( $answers[$i]['answers'] as $ans ): ?>
@@ -825,8 +795,8 @@
                                     <?php $a = $ans['answer'];break; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                            <div class="row justify-content-center" style="height:100px;margin-top:5%;">
-                                <input readonly type="text" class="shadow qOption" value="<?= $a ?>" maxlength="30" style="font-size:20px;text-align:center;height: 30px;margin-top: 10px;cursor: pointer;"> 
+                            <div class="row justify-content-center">
+                                <input readonly type="text" class="border-0 qOption" value="<?= $a ?>" maxlength="30"> 
                             </div>
                             <?php if($question['required'] == 1) : ?>
                                 <div class="row justify-content-center" style="height: 100px;">
@@ -837,15 +807,13 @@
                     </div>
                 </div>
             <?php elseif( $question['type'] == 'range' ) : ?>
-                <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
-                    <div class="row justify-content-center mb-3" style="height: 100%;">
-                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
-                            <div class="row justify-content-center" style="height: 20%;margin-top:2%;">
+                <div class="container-fluid mt-3">
+                    <div class="row justify-content-center my-2">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
+                            <div class="row justify-content-center">
                                 <div class="group" > 
-                                    <span class="highlight"></span> <span class="bar"></span> 
-                                    <label  class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
-                                        <?= $question['question']; ?>
-                                    </label>
+                                <span class="highlight"></span> <span class="bar"></span> 
+                                    <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
                             </div>
                             <?php foreach( $answers[$i]['answers'] as $ans ): ?>
@@ -854,25 +822,25 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
 
-                            <div class="form-group row" style="height:50%;padding-top:10%;">
+                            <div class="form-group row">
                                 <?php if( $a != '' ): ?>
                                     <?php $r = explode(',' , $a); ?>
-                                    <label for="example-number-input" class="col-2 col-form-label">From</label>
+                                    <label for="example-number-input" class="col-2 col-form-label">De</label>
                                     <div class="col-4">
-                                        <input class="form-control" type="number" value="<?=$r[0];?>" style="text-align: center;" readonly>
+                                        <input class="border-0 form-control" type="number" value="<?=$r[0];?>" readonly>
                                     </div>
-                                    <label for="example-number-input" class="col-2 col-form-label">To</label>
+                                    <label for="example-number-input" class="col-2 col-form-label">A</label>
                                     <div class="col-4">
-                                        <input class="form-control" type="number" value="<?=$r[1];?>" style="text-align: center;" readonly>
+                                        <input class="border-0 form-control" type="number" value="<?=$r[1];?>" readonly>
                                     </div>
                                 <?php else: ?>
-                                    <label for="example-number-input" class="col-2 col-form-label">From</label>
+                                    <label for="example-number-input" class="col-2 col-form-label">De</label>
                                     <div class="col-4">
-                                        <input class="form-control" type="number" style="text-align: center;" readonly>
+                                        <input class="border-0form-control" type="number" readonly>
                                     </div>
-                                    <label for="example-number-input" class="col-2 col-form-label">To</label>
+                                    <label for="example-number-input" class="col-2 col-form-label">A</label>
                                     <div class="col-4">
-                                        <input class="form-control" type="number" style="text-align: center;" readonly>
+                                        <input class="border-0 form-control" type="number" readonly>
                                     </div>
                                 <?php endif;?>
                             </div>
@@ -923,31 +891,6 @@
 
 <style>
 
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 100%, 100%;
-  border-radius: 50%;
-  font-weight:bold;
-  background-image: none;
-}
-
-.carousel-control-next-icon:after
-{
-  content: '>';
-  font-size: 55px;
-  color: #0079ca;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: #0079ca;
-  font-weight:bold;
-}
 .chartDiv , .barDiv {
     width: 100%;
     height: 100%;
@@ -965,7 +908,7 @@
             
             <div class="col-md-12 col-lg-4 ml-0 ml-lg-4 mt-3 mt-lg-0 mb-5" id="bar" style="background-color: white;height: 100%"> 
                 <div class="row justify-content-center mt-4 mb-3" style="height:50px;max-width:1918px">
-                    <div style="width:150px; height:100%;background-color:white" class="shadow" align="center">
+                    <div style="width:150px; height:100%;background-color:white" align="center">
                         <p style="margin-top:10px;">
                             Pregunta : <strong id="num_multi_bar" style="color:#0079ca">1</strong> / <?=count($multiple_choices);?>
                         </p>
@@ -973,7 +916,7 @@
                     </div>
                 </div>
 
-                <div id="barCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div id="barCarousel" class="carousel carousel-dark slide" data-interval="false" data-ride="carousel">
                     <div id="carousel-bar" class="carousel-inner">
 
                     </div>
@@ -994,10 +937,10 @@
     <div class="container-fluid mt-1" >
         <div class="row justify-content-center mt-3" id="row2" style="height: 300px">
             
-            <div class="col-md-12 col-lg-3 mr-0 mr-lg-4 shadow" id="round" style="height: 100%;background-color: white"> 
+            <div class="col-md-12 col-lg-3 mr-0 mr-lg-4 shadow-sm" id="round" style="height: 100%;background-color: white"> 
 
                 <div class="row justify-content-center mt-4 mb-3" style="height:50px;max-width:1918px">
-                    <div style="width:150px; height:100%;background-color:white" class="shadow" align="center">
+                    <div style="width:150px; height:100%;background-color:white">
                         <p style="margin-top:10px;">
                             Pregunta : <strong id="num_multi" style="color:#0079ca">1</strong> / <?=count($multiple_choices);?>
                         </p>
@@ -1005,7 +948,7 @@
                     </div>
                 </div>
 
-                <div id="pieCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div id="pieCarousel" class="carousel carousel-dark slide" data-interval="false" data-ride="carousel">
                     <div id="carousel-pie" class="carousel-inner">
 
                     </div>
@@ -1019,7 +962,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-7 ml-0 ml-lg-4  mt-lg-0 mt-3 shadow" id="line" style="background-color: white;height: 100%"> 
+            <div class="col-md-12 col-lg-7 ml-0 ml-lg-4  mt-lg-0 mt-3 shadow-sm" id="line" style="background-color: white;height: 100%"> 
                 <div id="linediv" style="height: 100%" ></div>
             </div>
         </div>

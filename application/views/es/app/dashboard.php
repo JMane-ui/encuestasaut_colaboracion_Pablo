@@ -9,7 +9,7 @@
     }
 </style>
 <div class="right_col" role="main">
-<div style="background-color: white;position: absolute;z-index:2;width: 100%;height: 100%;opacity: 0.7;" id="load">
+    <div style="background-color: white;position: absolute;z-index:2;width: 100%;height: 100%;opacity: 0.7;" id="load">
         <div class="load">
           <hr/><hr/><hr/><hr/>
          </div>
@@ -17,9 +17,9 @@
     </div>
 
     <div class="container-fluid" style="background-color: black;position: absolute;width: 100%;height: 100%;background-color: rgba(50,50,50,0.8);z-index: 3;position: fixed;display: none;" id="send_form">
-        <div class="row " style="height: 100%;">
-            <div class="col-md-8 col-lg-8 col-xl-5 mx-auto" style="height: 400px;background-image: url('<?= base_url('assets/img/send.gif');?>'),url('<?= base_url('assets/img/send2.gif');?>');background-repeat: no-repeat;background-size: 10% 50%,10% 50%;background-position:bottom left, bottom right;background-color: white;margin-top:30vh" id="fofo">
-                <div class="row justify-content-end " style="height: 17%;font-family: 'Helvetica Neue';" id="subitle_container">
+        <div class="row" style="height: 100%; padding: 0.1px;">
+            <div class="col-md-8 col-lg-8 col-xl-5 mx-auto" style="height: 400px;background-image: url('<?= base_url('assets/img/logo_paper.png');?>');background-repeat: no-repeat;background-size: 40% 50%;background-position:bottom center;background-color: white;margin-top:30vh" id="fofo">
+                <div class="row justify-content-end " style="height: 17%;font-family: 'Helvetica Neue'; padding: 0.1px;" id="subitle_container">
 
                 <div class="col-12 col-md-12" style="text-align: center;z-index: 5">
                         <button type="button" class="close" aria-label="Close" style="float: right;font-size: 30px" id="close_form">
@@ -29,25 +29,23 @@
                         <h1 id="subitle"> Enviar Encuesta </h1>
                     </div>
                 </div>
-                <div class="alert alert-danger" id="email-messages" style="display:none;margin:0px;text-align:center;">
-                    
-                </div>
-                <div class="row justify-content-center" style="height: 68%;z-index: 0;" id="imgT">
+
+                <div class="row justify-content-center" style="height: 68%;z-index: 0; padding: 0.1px;" id="imgT">
                     <div class="col-md-12 mt-3" style="text-align: center;" align="center">
-                        <form id="email-form"> 
-                            <div class="row justify-content-center" style="height: 10%;">
-                                <div class="col-8 col-md-7 col-lg-6 col-xl-7" style="text-align: center;" >
-                                    <label class="sr-only" for="inlineFormInputGroupUsername">enviar</label>
-                                        <div class="row justify-content-center" style="height:50px;"> 
+                       
+                                        <div class="row justify-content-center" style="height:50px; padding: 0.1px;"> 
                                                 <div style="width:400px;background-color:white;display:flex;justify-content:space-around;" class=form-inline >
-                                                    <input style="width:70%;" type="text" class="form-control" id="link">
-                                                    <button style="width:30%;" id="copy-btn" class="btn btn-info" type="button" onclick="copyFunction()">Copiar Link</button>
+                                                    <div class="col-md-8 col-sm-12">
+                                                        <input type="text" class="form-control" id="link">
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                    <button id="copy-btn" class="btn btn-info" type="button" onclick="copyFunction()">Copiar Link</button>
+                                                    </div>
+                                                    
+                                                    
                                                 </div>
                                         </div>
-                                </div>
-                            </div>
-
-                        </form> 
+          
             
                     </div>
                 </div>

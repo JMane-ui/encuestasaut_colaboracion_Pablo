@@ -388,8 +388,8 @@ body{
         <!-- End Range -->
         <?php elseif($question['type'] == 'valoration') : ?>
         <!-- Valoration -->
-        <div class="container-fluid mt-3" style="width: 100%;height: 600px;" >
-            <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
+        <div class="container-fluid mt-3" style="width: 100%;" >
+            <div class="row justify-content-center mb-3" style="margin-top: 5px;">
                 <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
                     <div class="row justify-content-center" style="height: 15%;margin-top:2%;">
                         <div class="group" > 
@@ -399,12 +399,21 @@ body{
                             </label>
                         </div>
                     </div>
-                    <div class="row justify-content-center" style="height: 75%;margin-top:2%;">
+                    <div class="row justify-content-center" style="height: 25%;margin-top:2%;">
                         <div class="form-group">
-                        <label class="form-label">Example range</label>
+                        <label class="form-label" style="font-size: 10px;">Donde 0 es el valor mínimo y 5 el máximo</label>
+                        <div class="row">
+                            <div class="col-1">
+                                <p>0</p>
+                            </div>
+                            <div class="col-10">
+                                <input type="range" class="form-range" min="0" max="5" step="1" data-id="qst_<?= $qst_id ;?>">
+                            </div>
+                            <div class="col-1">
+                                <p>5</p>
+                            </div>
                         
-                        <input type="range" class="form-range" min="0" max="5" step="1" data-id="qst_<?= $qst_id ;?>">
-
+                        </div>
                         </div>
                     </div>
                     <?php if($question['required'] == 1) : ?>

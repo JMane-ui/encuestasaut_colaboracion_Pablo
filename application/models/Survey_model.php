@@ -201,6 +201,8 @@ class Survey_model extends CI_Model{
                 $this->db->insert( 'date' , array( 'id'=>$id , 'body'=>$answer['body'] ) );
             elseif ( $answer['type'] == 'time' )
                 $this->db->insert( 'time' , array( 'id'=>$id , 'body'=>$answer['body'] ) );
+            elseif ( $answer['type'] == 'valoration' )
+                $this->db->insert( 'valoration' , array( 'id'=>$id , 'body'=>$answer['body'] ) );
             elseif ( $answer['type'] == 'range' ){
                 $temp = explode(',',$answer['body']);
                 $min = $temp[0];
@@ -262,6 +264,8 @@ class Survey_model extends CI_Model{
                 $answers['answer'] = $this->db->get_where('date' , array('id'=>$answers['id']))->row_array()['body'];
             elseif ( $answers['type'] == 'time' )
                 $answers['answer'] = $this->db->get_where('time' , array('id'=>$answers['id']))->row_array()['body'];
+            elseif ( $answers['type'] == 'valoration' )
+                $answers['answer'] = $this->db->get_where('valoration' , array('id'=>$answers['id']))->row_array()['body'];
             elseif ( $answers['type'] == 'range' ){
                 $temp = $this->db->get_where('minmax' , array('id'=>$answers['id']))->row_array();
                 $min = $temp['minimum'];

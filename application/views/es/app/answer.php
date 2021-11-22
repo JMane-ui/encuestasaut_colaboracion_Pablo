@@ -156,36 +156,23 @@ body{
 
 
 </style>
-<header>
-    <nav class="navbar navbar-light " style="background-color: white">
+<header class="container p-0">
+    <nav class="navbar navbar-light py-4">
         <a class="navbar-brand" href="<?=site_url();?>" id="brand">
-            <img src="<?=base_url('assets/img/logo_paper.png');?>" alt="logo" id="logo" width="90" height="60">
-            
+            <img src="<?=base_url('assets/img/logo_paper.png');?>" alt="logo" id="logo" width="54">
         </a>
     </nav>
-    
 </header>
 
 
-
-<div  class="row mt-2 justify-content-center" style="display: flex;justify-content:space-around;height:50px;max-width:1915px" >
-    <div style="width:500px;background-color:white" class="shadow">
-        <h2 style="text-align:center"> <?= ucfirst( $title ) ;?> </h2>
-    </div> 
-</div>
-
-<div  class="row mt-2 justify-content-center" style="display: flex;justify-content:space-around;height:100%;max-width:1915px" >
-    <div style="width:500px;background-color:white" class="shadow">
-        <p style="text-align:left">Objetivo: <?= ucfirst( $objective ) ;?> </p>
-        <p style="text-align:left">Descripción: <?= ucfirst( $description ) ;?> </p>
-    </div> 
-</div>
-<div  class="row  justify-content-center" style="display: flex;justify-content:space-around;height:30px;max-width:1915px">
-    <div style="width:500px;background-color:white" >
-        <h6 style="text-align:right;padding-right:10px"> De <?= ucfirst( $user ) ;?> </h6> 
+<div  class="row mt-2 justify-content-center">
+    <div class="col-12 col-lg-4">
+    <h2 class="display-4 fw-bolder"> <?= ucfirst( $title ) ;?></h2>
+        <p><span class="fw-bolder">Objetivo:</span>  <?= ucfirst( $objective ) ;?></p>
+        <p><span class="fw-bolder">Descripción:</span> <?= ucfirst( $description ) ;?></p>
+        <h6 class="text-end fw-bolder"> De <?= ucfirst( $user ) ;?></h6> 
     </div>
 </div>
-
 
 <div id="messages" class="alert mt-2" style="display: none;text-align:center;font-size:20px;"></div>
 <script> var nb_editors=1; var id; </script>
@@ -399,12 +386,41 @@ body{
             </div>
         </div>
         <!-- End Range -->
+        <?php elseif($question['type'] == 'valoration') : ?>
+        <!-- Valoration -->
+        <div class="container-fluid mt-3" style="width: 100%;height: 600px;" >
+            <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
+                <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
+                    <div class="row justify-content-center" style="height: 15%;margin-top:2%;">
+                        <div class="group" > 
+                            <span class="highlight"></span> <span class="bar"></span> 
+                            <label id="question<?= $qst_id ;?>"  class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                                <?= $question['question']; ?>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" style="height: 75%;margin-top:2%;">
+                        <div class="form-group">
+                        <label class="form-label">Example range</label>
+                        
+                        <input type="range" class="form-range" min="0" max="5" step="1" data-id="qst_<?= $qst_id ;?>">
+
+                        </div>
+                    </div>
+                    <?php if($question['required'] == 1) : ?>
+                        <div class="row justify-content-center" style="height: 10%;">
+                            <p style="margin-left:auto;margin-right:2%;font-size: 15px;color: rgb(54, 54, 54)"><i class="fas fa-asterisk" style="font-size: 10px;color: red;"></i>Necesaria</p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <!-- End Valoration -->
     <?php endif; ?>
     <?php $qst_id++ ;?>
 <?php endforeach; ?>
     
-<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn"><i class="bi bi-arrow-up-circle-fill h2"></i></button>
 <footer class="row mt-4 mb-1 justify-content-center" style="max-width:1915px;">
     <button id='btn-send' class="btn btn-success" style="padding:10px;font-size:20px;width:200px">
         Enviar <i class='fas fa-paper-plane'></i>

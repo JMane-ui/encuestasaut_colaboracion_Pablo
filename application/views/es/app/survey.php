@@ -115,44 +115,66 @@
     </div>
 </div>
 
-<div id="container_add" style="position: fixed;z-index: 2">
-    <input type="checkbox" id="menu-toggle"/>
-    <label for="menu-toggle" id="add_label">
-        <i class="fas fa-plus" id="open"></i>
-    </label>
-    <ul id="menu" style="top:20px;">
-        <li><a href="#bottom" id="MCQ" class="Q"><i class="far fa-dot-circle" style="color: #007bff"></i> MCQ</a></li>
-        <li><a href="#bottom" id="CXQ" class="Q"><i class="far fa-check-square" style="color: #007bff"></i> Checkbox</a></li>
-        <li><a href="#bottom" id="OQ" class="Q"><i class="fas fa-question" style="color: #007bff"></i> Abierta</a></li>
-        <li><a href="#bottom" id="DATEQ" class="Q"><i class="far fa-calendar-alt" style="color: #007bff"></i> Fecha</a></li>
-        <li><a href="#bottom" id="TIMEQ" class="Q"><i class="far fa-clock" style="color: #007bff"></i> Tiempo</a></li>
-        <li><a href="#bottom" id="RANGEQ" class="Q"><i class="fas fa-ruler-horizontal" style="color: #007bff"></i> Rango</a></li>
-        <!-- Add Matrix --> 
-    </ul>
-</div>
+
 <div id="messages" class="alert" style="display:none;text-align: center;">
     
 </div>
+
 <div id="question_container">
 
 </div>
 <div id="bottom"></div>
 
+<div class="row justify-content-center bg-dark" id="container_add">
+    <div class="col-12 text-center bg-light">
+        <div class="accordion border-0 p-0 m-0" id="accordionExample">
+            <div class="accordion-item border-0 p-0 m-0 bg-light">
+            <h2 class="accordion-header" id="headingOne">
+                            <button class="btn btn-sm bg-blue my-4" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                + Agregar
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show border-0 p-0 m-0" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body border-0 p-0 m-0 bg-light">
+                                <ul class="nav flex-row justify-content-center bg-light gap-2">
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="MCQ" class="Q"><i class="far fa-dot-circle" style="color: #007bff"></i> MCQ</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="CXQ" class="Q"><i class="far fa-check-square" style="color: #007bff"></i> Checkbox</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="OQ" class="Q"><i class="fas fa-question" style="color: #007bff"></i> Abierta</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="DATEQ" class="Q"><i class="far fa-calendar-alt" style="color: #007bff"></i> Fecha</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="TIMEQ" class="Q"><i class="far fa-clock" style="color: #007bff"></i> Tiempo</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="RANGEQ" class="Q"><i class="fas fa-ruler-horizontal" style="color: #007bff"></i> Rango</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a class="nav-link text-dark" href=""><i
+                                                class="bi bi-border-all"></i> Matriz</a></li>
+                                    <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="VALQ" class="Q"><i class="bi-star-fill" style="color: #007bff"></i> Valoración</a></li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
 
-<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn"><i class="bi bi-arrow-up-circle-fill h2"></i></button>
 
-<footer >
-    <button id="send" class="btn btn-success">
-        Enviar <i class='fas fa-paper-plane'></i> <!-- Store it + Ajax email sending -->
+
+<footer class="row justify-content-center p-0 m-0 bg-light">
+    <div class="col-6 text-center">
+    <button id="send" class="btn btn-success btn-sm">
+        Enviar <i class='fas fa-paper-plane'></i>
     </button>
     
     <?php if( $this->session->userdata('logged_in') ): ?>
         <a id='save'>
-            <button class="btn btn-info" style="font-size: 20px;font-weight: bold;">
-                    Guardar <i class="fas fa-cloud-download-alt"></i> <!-- On Click submit surveys/store -->
+            <button class="btn btn-info btn-sm">
+                    Guardar <i class="fas fa-cloud-download-alt"></i>
             </button>
         </a>
     <?php endif; ?>
+    </div>
+
 </footer>
 </div>
 

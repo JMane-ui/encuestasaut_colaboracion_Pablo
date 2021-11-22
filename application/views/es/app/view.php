@@ -306,6 +306,41 @@
                     </div>
                 </div>
             </div>
+
+            <?php elseif ($question['type'] == 'valoration') : ?>
+            <script>
+                questions[<?= $question_id; ?>] = ['valoration', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
+            </script>
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 210px">
+                <div class="row justify-content-center mb-3 " id=question_nb<?= $question_id; ?> style="height: 360px;margin-top: 5px;">
+                    <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 50%;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
+                        <div class="row justify-content-end">
+                            <button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="row justify-content-center" style="height: 70px;">
+                            <div class="group">
+                                <input id="question<?= $question_id; ?>" value="<?= $question['question']; ?>" type="range" min="0" max="5" step="1" class="qTitle" class="shadow" maxlength="70" required>
+                                <span class="highlight"></span> <span class="bar"></span>
+                                <label class="label" style="left: 32%"> Pregunta <i class="fas fa-question" style="color: #007bff"></i> </label>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
+                            <label class="switch" style="margin-left: 80%;margin-top: 25px">
+                                <?php if ( $question['required'] == 1 ) : ?>
+                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
+                                <?php else: ?>
+                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
+                                <?php endif; ?>
+                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         <?php elseif ($question['type'] == 'date') : ?>
             <script>
                 questions[<?= $question_id; ?>] = ['date', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
@@ -710,6 +745,41 @@
                         </div>
                     </div>
                 </div>
+
+                <?php elseif( $question['type'] == 'valoration' ) : ?>
+                <div class="container-fluid mt-3" style="width: 100%;height: 420px;" >
+                    <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 5px;">
+                        <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 100%;background-color: white;">
+                            <div class="row justify-content-center" style="height: 50px;margin-top:2%;">
+                                <div class="group" > 
+                                    <span class="highlight"></span> <span class="bar"></span> 
+                                    <label class="label" style="top:-10px;left:0px !important;font-size: 25px;color:black;margin-top: 25px;text-align:center;width: 100%;">
+                                        <?= $question['question']; ?>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <?php foreach( $answers[$i]['answers'] as $ans ): ?>
+                                <?php if( $ans['question_id'] == $question['id'] ): ?>
+                                    <?php $a = $ans['answer'];break; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            <div class="row justify-content-center" style="height: 300px;margin-top:2%;">
+                                <div class="form-group"> <!-- OPEN HERE -->
+                                <div style="height:200px;width:500px;background-color:white;margin-top:50px;overflow-y:scroll" class="shadow">
+                                    <?= $a; ?>
+                                </div>
+                                </div>
+                            </div>
+                            <?php if($question['required'] == 1) : ?>
+                                <div class="row justify-content-center" style="height: 50px;">
+                                    <p style="margin-left:auto;margin-right:2%;font-size: 15px;color: rgb(54, 54, 54)"><i class="fas fa-asterisk" style="font-size: 10px;color: red;"></i>Necesaria</p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
             <?php elseif( $question['type'] == 'date' ) : ?>
                 <div class="container-fluid mt-3" style="width: 100%;height: 250px;" >
                     <div class="row justify-content-center mb-3" style="height: 100%;margin-top: 20px;">

@@ -290,6 +290,41 @@ else if($(this).attr(`id`)=="TIMEQ"){
   $("#question_container").append(html);
   questions[question_nb] = ['time' , `question${question_nb}` , `question${question_nb}required`]; 
 
+}else if($(this).attr(`id`)=="VALQ"){
+  let html = ``;
+  html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
+  <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
+      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+          <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+              <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
+                  id="Del_Q${question_nb}"></button>
+
+              <div class="row align-items-center my-2">
+                  <div class="col-8">
+                      <input class="form-control qTitle" type="text" id="question${question_nb}">
+                  </div>
+                  <div class="col-4">
+                      <label for="">Pregunta</label>
+                      <i class="bi bi-star-fill"></i>
+                  </div>
+              </div>
+
+              <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                  <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                          <label class="switch">
+                          <input id="question${question_nb}" required type="checkbox" checked> <span
+                              class="slider round"></span>Requerida
+                      </label>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>`;
+  $("#question_container").append(html);
+  questions[question_nb] = ['valoration' , `question${question_nb}` , `question${question_nb}required`]; 
+
 }else{
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
@@ -325,7 +360,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   $("#question_container").append(html);
   questions[question_nb] = ['range' , `question${question_nb}` , `question${question_nb}required`]; 
 
-}
+} 
 
 $("#question_nb"+question_nb).fadeIn();
 question_nb++;

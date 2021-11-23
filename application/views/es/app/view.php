@@ -572,7 +572,7 @@
 
 
 <div style="display: none;" id="answers_container"> <!-- ICI -->
-    <div class="row justify-content-center" style="height:50px;max-width:1918px">
+    <div class="row justify-content-center p-2 mb-2" style="height:100%;max-width:1918px">
         <div class="text-center">
             <h6>
                 <?php if( count($answers) > 0 ): ?>
@@ -601,11 +601,11 @@
             <?php $a = '' ;?>
             <?php if ($question['type'] == 'mcq'): ?>
                 <?php $h = ($question['required'] == 1) ? 100 + ( count($question['options'])*80 ) : 50 + ( count($question['options'])*80 );?>
-                <div class="container-fluid">
+                <div class="container-fluid mt-3">
                     <div class="row justify-content-center my-2">
                         <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                             <div class="row justify-content-center">
-                                <div class="group" > 
+                                <div class="group d-flex justify-content-center" > 
                                 <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
@@ -623,7 +623,7 @@
                                 <?php endforeach; ?>
                                 <p class="fw-bolder">Respuestas:</p>
                                 <?php foreach($question['options'] as $option): ?>
-                                    <div class="group se" > 
+                                    <div class="group se d-flex justify-content-center" > 
                                         <div class="d-flex align-items-center">
                                             <div>
                                                 <?php if ( $a == $option ) : ?>
@@ -654,7 +654,7 @@
                         <div class="row justify-content-center my-2">
                             <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                                 <div class="row justify-content-center">
-                                    <div class="group" > 
+                                    <div class="group d-flex justify-content-center" > 
                                     <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                     </div>
@@ -672,7 +672,7 @@
                                     <?php endforeach; ?>
                                     <p class="fw-bolder">Respuestas:</p>
                                     <?php foreach($question['options'] as $option): ?>
-                                        <div class="group se" > 
+                                        <div class="group se d-flex justify-content-center" > 
                                             <div style="width:100%;">
                                                 <div style="float:left;">
                                                     <?php if( in_array($option,$ar)  ): ?>
@@ -699,7 +699,7 @@
                     <div class="row justify-content-center my-2">
                         <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                             <div class="row justify-content-center">
-                                <div class="group" > 
+                                <div class="group d-flex justify-content-center" > 
                                     <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
@@ -729,7 +729,7 @@
                     <div class="row justify-content-center my-2">
                         <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                             <div class="row justify-content-center">
-                                <div class="group" > 
+                                <div class="group d-flex justify-content-center" > 
                                     <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
@@ -759,7 +759,7 @@
                     <div class="row justify-content-center my-2">
                         <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                             <div class="row justify-content-center">
-                                <div class="group" > 
+                                <div class="group d-flex justify-content-center" > 
                                 <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
@@ -785,7 +785,7 @@
                     <div class="row justify-content-center my-2">
                         <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                             <div class="row justify-content-center">
-                                <div class="group" > 
+                                <div class="group d-flex justify-content-center" > 
                                 <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
@@ -811,7 +811,7 @@
                     <div class="row justify-content-center my-2">
                         <div class="col-md-6 col-lg-5 col-xl-4 col-12 p-4 shadow-sm bg-white">
                             <div class="row justify-content-center">
-                                <div class="group" > 
+                                <div class="group d-flex justify-content-center" > 
                                 <span class="highlight"></span> <span class="bar"></span> 
                                     <h2 class="fw-bolder"><?= $question['question']; ?></h2>
                                 </div>
@@ -895,18 +895,23 @@
     width: 100%;
     height: 100%;
 }
+
+.carousel-control-prev,.carousel-control-next{
+    top: -85px;
+    height:10%;
+}
 </style>
 
 
 <div id="summary_container">
 <?php if( count($multiple_choices) > 0 ) : ?>
     <div class="container-fluid" >
-        <div class="row justify-content-center mt-1" id="row1" style="height: 400px">
-            <div class="col-md-12 col-lg-6 mr-0 mr-lg-4" id="world" style="background-color: white;height: 100%"> 
-                <div id="worlddiv" style="height: 100%"></div>
+        <div class="row justify-content-center mt-1" id="row1" style="height: 100%;">
+            <div class="col-md-12 col-lg-6 mr-0 mr-lg-4" id="world" style="background-color: white;height: 100%;"> 
+                <div id="worlddiv"></div>
             </div>
             
-            <div class="col-md-12 col-lg-4 ml-0 ml-lg-4 mt-3 mt-lg-0 mb-5" id="bar" style="background-color: white;height: 100%"> 
+            <div class="col-md-12 col-lg-4 ml-0 ml-lg-4 mt-3 mt-lg-0 mb-5" id="bar" style="background-color: white;height: 100%;"> 
                 <div class="row justify-content-center mt-4 mb-3" style="height:50px;max-width:1918px">
                     <div style="width:150px; height:100%;background-color:white" align="center">
                         <p style="margin-top:10px;">
@@ -920,11 +925,11 @@
                     <div id="carousel-bar" class="carousel-inner">
 
                     </div>
-                    <a id="prev_multi_bar" class="carousel-control-prev" href="#barCarousel" role="button" data-slide="prev" style="top: -370px;">
+                    <a id="prev_multi_bar" class="carousel-control-prev" href="#barCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previo</span>
                     </a>
-                    <a id='next_multi_bar' class="carousel-control-next" href="#barCarousel" role="button" data-slide="next" style="top: -370px;">
+                    <a id='next_multi_bar' class="carousel-control-next" href="#barCarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Siguiente</span>
                     </a>
@@ -935,7 +940,7 @@
     </div>
 
     <div class="container-fluid mt-1" >
-        <div class="row justify-content-center mt-3" id="row2" style="height: 300px">
+        <div class="row justify-content-center mt-3" id="row2" style="height: 100%;">
             
             <div class="col-md-12 col-lg-3 mr-0 mr-lg-4 shadow-sm" id="round" style="height: 100%;background-color: white"> 
 
@@ -952,18 +957,18 @@
                     <div id="carousel-pie" class="carousel-inner">
 
                     </div>
-                    <a id="prev_multi" class="carousel-control-prev" href="#pieCarousel" role="button" data-slide="prev" style="top: -270px;">
+                    <a id="prev_multi" class="carousel-control-prev" href="#pieCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previo</span>
                     </a>
-                    <a id='next_multi' class="carousel-control-next" href="#pieCarousel" role="button" data-slide="next" style="top: -270px;">
+                    <a id='next_multi' class="carousel-control-next" href="#pieCarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Siguiente</span>
                     </a>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-7 ml-0 ml-lg-4  mt-lg-0 mt-3 shadow-sm" id="line" style="background-color: white;height: 100%"> 
-                <div id="linediv" style="height: 100%" ></div>
+            <div class="col-md-12 col-lg-7 ml-0 ml-lg-4  mt-lg-0 mt-3 shadow-sm" id="line" style="background-color: white;height: 100%;"> 
+                <div id="linediv" style="height: 100%;" ></div>
             </div>
         </div>
     </div>

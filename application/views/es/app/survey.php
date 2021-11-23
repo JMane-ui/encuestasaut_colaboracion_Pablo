@@ -56,7 +56,7 @@
 </div>
 
 <div class="container-fluid" id="main" style="background-image: url('<?= base_url('assets/img/double-bubble.png');?>');">
-    <div class="row justify-content-center mainR" style="height: 65vh;min-height: 150px; padding: 0.1px;">
+    <div class="row justify-content-center mainR">
         <div class="col-md-4"> 
             <form id="sub-img" method="post" enctype="multipart/form-data">
                 <input type="file" name="userfile" id="my_file" style="display: none;" />
@@ -88,29 +88,29 @@
                 });
             </script>
         </div>
-        <div class="col-md-4"id="test">
+        <div class="col-md-4 justify-content-center" id="test">
 
-            <div class="group" style="margin-top: 18vh;" >
-                <input type="text" id="title_input" class="shadow" maxlength="30" required> <!-- Title Input -->
+            <div class="group my-4">
+                <label class="fw-bolder" id="title_label">Título de la Encuesta</label>
+                <input type="text" id="title_input" class="form-control form-control-sm" maxlength="30" required> <!-- Title Input -->
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label id="title_label"> Título de la Encuesta </label>
             </div>
-            <div class="group" style="margin-top: 5vh;" >
-                <input type="text" id="objective_input" class="shadow" maxlength="100" required> <!-- Title Input -->
+            <div class="group my-4">
+                <label class="fw-bolder" id="objective_label">Objetivo de la Encuesta</label>
+                <input type="text" id="objective_input" class="form-control form-control-sm" maxlength="100" required> <!-- Title Input -->
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label id="objective_label"> Objetivo de la Encuesta </label>
             </div>
-            <div class="group" style="margin-top: 5vh;" >
-                <input type="text" id="description_input" class="shadow" maxlength="250" required> <!-- Title Input -->
+            <div class="group my-4">
+                <label class="fw-bolder" id="description_label">Descripción de la Encuesta</label>
+                <input type="text" id="description_input" class="form-control form-control-sm" maxlength="250" required> <!-- Title Input -->
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label id="description_label"> Descripción de la Encuesta </label>
             </div>
         </div>
-        <div class="col-md-4" style="height: 100%;" align="center" id="test2">
-            <img src="<?= base_url('assets/img/survTheme.png');?>" class="shadow" height="100" width="100" style="background-color: rgb(244,244,244);border-radius: 100%;margin-top: 15vh;cursor: pointer;" id="theme">
+        <div class="col-md-4 justify-content-center d-flex align-items-center">
+            <button class="btn" id="theme"><i class="bi bi-palette-fill fs-1"></i></button>
         </div>
     </div>
 </div>

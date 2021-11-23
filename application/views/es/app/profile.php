@@ -11,16 +11,16 @@
 </div>
 -->
 
-<div class="container-fluid mt-5" id="main">
+<div class="container-fluid" id="main">
     <div class="row justify-content-center mainR" style="padding: 0.1px;">   
-        <div class="col-md-8 col-lg-6 col-xl-5 mb-5" id="test">
+        <div class="col-lg-4 col-8" id="test">
             <div class="row justify-content-center mt-4">
-                <div class=" col-md-5 col-lg-5 col-xl-6">
+                <div class="col-lg-5 col-12">
                     <img class="img-fluid rounded-circle" src="<?= base_url('assets/img/uploads/users/').$user_img;?>" id="user_img">
                 </div>
                 <div class="col-1">
                     
-                    <input type="image" src="<?= base_url('assets/img/camera-2.png');?>" id="proj_img" height="40" style="width: 40px;margin-left: -15px" />
+                    <input type="image" class="p-1" src="<?= base_url('assets/img/camera-2.png');?>" id="proj_img" height="40"/>
                     <form id="sub-img" method="post" enctype="multipart/form-data">
                         <input type="file" name="userfile" id="my_file" style="display: none;" />
                     </form>

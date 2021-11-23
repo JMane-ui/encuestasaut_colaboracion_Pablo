@@ -88,7 +88,7 @@ if($(this).attr('id')=="MCQ"){
   let html = '';
   html += ` <div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -139,7 +139,7 @@ else if($(this).attr('id')=="CXQ"){
   let html = '';
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -188,7 +188,7 @@ else if($(this).attr(`id`)=="OQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -223,7 +223,7 @@ else if($(this).attr(`id`)=="DATEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -259,7 +259,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -294,7 +294,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -329,7 +329,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-4 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>

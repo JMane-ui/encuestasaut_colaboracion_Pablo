@@ -56,7 +56,7 @@
 </div>
 
 <div class="container-fluid" id="main" style="background-image: url('<?= base_url('assets/img/double-bubble.png');?>');">
-    <div class="row justify-content-center mainR">
+    <div class="row justify-content-center mainR" style="padding:0.1px;">
         <div class="col-md-4"> 
             <form id="sub-img" method="post" enctype="multipart/form-data">
                 <input type="file" name="userfile" id="my_file" style="display: none;" />

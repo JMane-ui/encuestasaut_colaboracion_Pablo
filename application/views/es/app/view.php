@@ -1,6 +1,6 @@
 <div class="right_col" role="main">
 <div class="container-fluid">
-    <div class="row justify-content-center mt-3 p-1" style="height: 70px;">
+    <div class="row justify-content-center mt-3 p-1" style="height: 150%;">
         <div class="col-lg-6 col-md-8 my-auto" align="center">
             <button class="btn btn-info switch_menu" id="survey">
                  Editar Encuesta
@@ -899,6 +899,24 @@
 .carousel-control-prev,.carousel-control-next{
     top: -85px;
     height:10%;
+}
+
+#worlddiv{
+    height:390px !important;
+}
+
+#linediv{
+    height: 290px !important;
+}
+
+@media (max-width: 990px){
+    #worlddiv{
+        height:100% !important;
+    }
+
+    #linediv{
+        height: 100% !important;
+    }
 }
 </style>
 

@@ -901,7 +901,7 @@
     height:10%;
 }
 
-#worlddiv{
+#world{
     height:390px !important;
 }
 
@@ -910,7 +910,7 @@
 }
 
 @media (max-width: 990px){
-    #worlddiv{
+    #world{
         height:100% !important;
     }
 
@@ -926,7 +926,11 @@
     <div class="container-fluid" >
         <div class="row justify-content-center mt-1" id="row1" style="height: 100%;">
             <div class="col-md-12 col-lg-6 mr-0 mr-lg-4" id="world" style="background-color: white;height: 100%;"> 
-                <div id="worlddiv"></div>
+                <div class="m-4">
+                    <h3><b class="text-green">Título: </b><?=$title;?></h3>
+                    <h4><b class="text-green">Objetivo: </b><?=$objective;?></h4>
+                    <h4><b class="text-green">Descripción: </b><?=$description;?></h4>
+                </div>
             </div>
             
             <div class="col-md-12 col-lg-4 ml-0 ml-lg-4 mt-3 mt-lg-0 mb-5" id="bar" style="background-color: white;height: 100%;"> 

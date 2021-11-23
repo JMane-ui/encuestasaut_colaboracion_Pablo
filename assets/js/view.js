@@ -373,11 +373,11 @@ $(document).on('click', "[id^='add_opt']", function(){
     if ( questions[Id].length < 13 ){ // Condition Size
       if(QType=="mcq"){
 
-        $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+50});
+        $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+80});
 
-        $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+50});
+        $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+80});
 
-        $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+50});
+        $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+80});
         
         let html = '';
         html += `<div class="group se" > `;
@@ -396,11 +396,11 @@ $(document).on('click', "[id^='add_opt']", function(){
       }
       else if(QType=="cxq"){
 
-        $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+50});
+        $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+80});
 
-        $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+50});
+        $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+80});
 
-        $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+50});
+        $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+80});
 
         let html = '';
         html += `<div class="group se" > `;
@@ -436,9 +436,9 @@ $(document).on('click', "[class^='Del_OptQ']", function(){
     id = id.replace(/mcq_container/, '');
 
     data.remove();//removes cross
-    $("#mcq_content"+[id]).animate({height: $("#mcq_content"+[id]).height()-50});
-    $("#mcq_container"+[id]).animate({height: $("#mcq_container"+[id]).height()-50});
-    $("#content_here"+[id]).animate({height: $("#content_here"+[id]).height()-50});
+    $("#mcq_content"+[id]).animate({height: $("#mcq_content"+[id]).height()-80});
+    $("#mcq_container"+[id]).animate({height: $("#mcq_container"+[id]).height()-80});
+    $("#content_here"+[id]).animate({height: $("#content_here"+[id]).height()-80});
       
     // Delete option from array
     // Del_mcq_question1_option2

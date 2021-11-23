@@ -177,9 +177,9 @@
                         <div class="row justify-content-center" style="height: 50px;" id="mcq_content<?= $question_id; ?>">
                             <?php foreach ($question['options'] as $option) : ?>
                                 <script>
-                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 50);
-                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 50);
-                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 50);
+                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 80);
+                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 80);
+                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 80);
                                 </script>
                                 <div class="group se">
                                     <i class="far fa-circle" style="float: left;font-size: 30px;margin-top: 10px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>
@@ -232,9 +232,9 @@
                         <div class="row justify-content-center" style="height: 50px;" id="mcq_content<?= $question_id; ?>">
                             <?php foreach ($question['options'] as $option) : ?>
                                 <script>
-                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 50);
-                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 50);
-                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 50);
+                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 80);
+                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 80);
+                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 80);
                                 </script>
                                 <div class="group se">
                                     <i class="far fa-square" style="float: left;font-size: 30px;margin-top: 10px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>

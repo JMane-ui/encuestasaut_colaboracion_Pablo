@@ -73,83 +73,71 @@
         </div>
     </div>
 
-    <div class="container-fluid" id="main" style="background-image: url('<?= base_url('assets/img/form_background.jpg');?>');">
-        <div class="row justify-content-center mainR" style="height: 65vh;min-height: 150px; padding: 0.1px;">
-            <div class="col-md-4" style="height: 100%" align="center"> 
-                <input type="image" src="<?= base_url('assets/img/uploads/surveys/').$survey_img;?>" id="proj_img" class="shadow" height="100"  style="background-color: rgb(244,244,244);margin-top: 15vh;cursor: pointer;border-radius: 100%;width: 100px"/>
-                <form id="sub-img" method="post" enctype="multipart/form-data">
-                    <input type="file" name="userfile" id="my_file" style="display: none;" />
-                </form>
-                <script> 
-                    $(document).ready(function(){
-                        $('#my_file').change(function(){
-                            let d = new FormData( $('#sub-img')[0]  );
-                            $.ajax({
-                                url:'<?= site_url('surveys/upload_image'); ?>' ,
-                                method:'POST',  
-                                data:d,
-                                contentType:false,
-                                cache:false,
-                                processData:false,
-                                success:function(data){
-                                    let img = $.parseJSON(data);
-                                    $('#proj_img').attr('src' , `<?= base_url('assets/img/uploads/surveys/'); ?>${img['file_name']}` );
-                                },
-                                error:function(xhr,status,error){
-                                    console.log(xhr);
-                                    console.log(status);
-                                    console.log(error);
-                                }
-                            });
+    <div class="container-fluid" id="main" style="background-image: url('<?= base_url('assets/img/double-bubble.png');?>');">
+    <div class="row justify-content-center mainR" style="padding:0.1px;">
+        <div class="col-md-4"> 
+            <form id="sub-img" method="post" enctype="multipart/form-data">
+                <input type="file" name="userfile" id="my_file" style="display: none;" />
+            </form>
+            <script> 
+                $(document).ready(function(){
+                    $('#my_file').change(function(){
+                        //e.preventDefault();
+                        let d = new FormData( $('#sub-img')[0]  );
+                        //console.log(d);
+                        $.ajax({
+                            url:'<?= site_url('surveys/upload_image'); ?>' ,
+                            method:'POST',  
+                            data:d,
+                            contentType:false,
+                            cache:false,
+                            processData:false,
+                            success:function(data){
+                                let img = $.parseJSON(data);
+                                $('#proj_img').attr('src' , `<?= base_url('assets/img/uploads/surveys/'); ?>${img['file_name']}` );
+                            },
+                            error:function(xhr,status,error){
+                                console.log(xhr);
+                                console.log(status);
+                                console.log(error);
+                            }
                         });
                     });
-                </script>
-            
-            </div>
-            <div class="col-md-4" style="height: 100%" align="center" id="test">
+                });
+            </script>
+        </div>
+        <div class="col-md-4 justify-content-center" id="test">
 
-                <div class="group" style="margin-top: 18vh;" >
-                    <input type="text" id="title_input" value="<?= $title; ?>" class="shadow" maxlength="30" required> <!-- Title Input -->
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label id="title_label">Título de la Encuesta</label>
-                </div>
-                <div class="group" style="margin-top: 5vh;" >
-                    <input type="text" id="objective_input" value="<?= $objective; ?>" class="shadow" maxlength="100" required> <!-- objective Input -->
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label id="objective_label">Objetivo de la Encuesta</label>
-                </div>
-                <div class="group" style="margin-top: 5vh;" >
-                    <input type="text" id="description_input" value="<?= $description; ?>" class="shadow" maxlength="250" required> <!-- description Input -->
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label id="description_label">Descripción de la Encuesta</label>
-                </div>
+            <div class="group my-4">
+                <label class="fw-bolder" id="title_label">Título de la Encuesta</label>
+                <input value="<?= $title; ?>" type="text" id="title_input" class="form-control form-control-sm" maxlength="30" required> <!-- Title Input -->
+                <span class="highlight"></span>
+                <span class="bar"></span>
             </div>
-            <div class="col-md-4" style="height: 100%;" align="center" id="test2">
-                <img src="<?= base_url('assets/img/survTheme.png');?>" class="shadow" height="100" width="100" style="background-color: rgb(244,244,244);border-radius: 100%;margin-top: 15vh;cursor: pointer;" id="theme">
+            <div class="group my-4">
+                <label class="fw-bolder" id="objective_label">Objetivo de la Encuesta</label>
+                <input value="<?= $objective; ?>" type="text" id="objective_input" class="form-control form-control-sm" maxlength="100" required> <!-- Title Input -->
+                <span class="highlight"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="group my-4">
+                <label class="fw-bolder" id="description_label">Descripción de la Encuesta</label>
+                <input value="<?= $description; ?>" type="text" id="description_input" class="form-control form-control-sm" maxlength="250" required> <!-- Title Input -->
+                <span class="highlight"></span>
+                <span class="bar"></span>
             </div>
         </div>
+        <div class="col-md-4 justify-content-center d-flex align-items-center">
+            <button class="btn" id="theme"><i class="bi bi-palette-fill fs-1"></i></button>
+        </div>
     </div>
+</div>
 
-    <div id="container_add" style="position: fixed;z-index: 2">
-        <input type="checkbox" id="menu-toggle" checked/>
-        <label for="menu-toggle" id="add_label">
-            <i class="fas fa-plus" id="open"></i>
-        </label>
-        <ul id="menu" style="top:20px;">
-            <li><a href="#bottom" id="MCQ" class="Q"><i class="far fa-dot-circle" style="color: #007bff"></i> MCQ</a></li>
-            <li><a href="#bottom" id="CXQ" class="Q"><i class="far fa-check-square" style="color: #007bff"></i> Checkbox</a></li>
-            <li><a href="#bottom" id="OQ" class="Q"><i class="fas fa-question" style="color: #007bff"></i> Abierta</a></li>
-            <li><a href="#bottom" id="DATEQ" class="Q"><i class="far fa-calendar-alt" style="color: #007bff"></i> Fecha</a></li>
-            <li><a href="#bottom" id="TIMEQ" class="Q"><i class="far fa-clock" style="color: #007bff"></i> Tiempo</a></li>
-            <li><a href="#bottom" id="RANGEQ" class="Q"><i class="fas fa-ruler-horizontal" style="color: #007bff"></i> Rango</a></li>
-        </ul>
-    </div>
+
     <div id="update-messages" class="alert" style="display:none;text-align: center;">
         
     </div>
+
     <div id="question_container">
 
     
@@ -160,53 +148,61 @@
             <script>
                 questions[<?= $question_id; ?>] = ['mcq', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 270px;">
-                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>" style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 252px;background-color: white;margin-top: 10px;" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end"><button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input type="text" value="<?= $question['question']; ?>" class="qTitle" class="shadow" maxlength="70" id="question<?= $question_id; ?>" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%">Pregunta <i class="far fa-dot-circle" style="color: #007bff"></i> </label>
+            <<div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 270px;">
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+
+                            <div class="row align-items-center my-2">
+                                <div class="col">
+                                    <input value="<?= $question['question']; ?>" class="form-control qTitle" type="text" id="question<?= $question_id; ?>">
+                                </div>
+                                <div class="col">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;" id="mcq_content<?= $question_id; ?>">
+
+                            <div class="row align-items-center my-2" id="mcq_content<?= $question_id; ?>">
                             <?php foreach ($question['options'] as $option) : ?>
                                 <script>
                                     $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 80);
                                     $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 80);
                                     $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 80);
                                 </script>
-                                <div class="group se">
-                                    <i class="far fa-circle" style="float: left;font-size: 30px;margin-top: 10px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>
-                                    <input type="text" value="<?= $option; ?>" class="shadow qOption" id="option<?= $option_id; ?>" maxlength="30" style="height: 30px;margin-top: 10px;" required>
-                                    <span class="highlight"></span>
-                                    <span class="bar" style="background:red;margin-left: 45px;"></span>
-                                    <label class="label">Opción </label>
+                                <div class="form-group group se">
+                                    <div class="col d-flex align-items-center gap-2">
+                                        <i class="bi bi-circle"></i>
+                                        <input class="form-control qOption mt-4" type="text" value="<?= $option; ?>" id="option<?= $option_id; ?>" maxlength="30" required>
+                                        <label for="">Opción</label>
+                                        </div>
                                 </div>
-                                <button type="button" class="Del_OptQ close" id="Del_mcq_question<?= $question_id; ?>_option<?= $option_id; ?>" aria-label="Close" style="margin-left: 10px;margin-top: -10px">
-                                    <span aria-hidden="true">&times;</span></button>
+                                    
+                                <button id="Del_mcq_question<?= $question_id; ?>_option<?= $option_id; ?>" class="Del_OptQ close btn text-danger text-end"
+                                type="button"><i class="bi bi-trash-fill"></i></button>
+
                                 <script>
                                     questions[<?= $question_id; ?>].push('option<?= $option_id; ?>');
                                 </script>
                                 <?php $option_id++; ?>
                             <?php endforeach; ?>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <button class="btn btn-success mcq" id="add_opt<?= $question_id; ?>" style="height: 50px;font-weight: bold;margin-left: 32%">Agregar</button>
-                            <label class="switch" style="margin-left: 27%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+
+                            </div>
+                            
+
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-start" id="mcq_footer">
+                                <button class="btn btn-success mcq" id="add_opt<?= $question_id; ?>" style="background-color:#7c942c !important; font-size:14px;">Agregar</button>
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,51 +212,60 @@
                 questions[<?= $question_id; ?>] = ['checkbox', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
             <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 270px;">
-                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>" style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 252px;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end"><button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input type="text" value="<?= $question['question']; ?>" class="qTitle" class="shadow" maxlength="70" id="question<?= $question_id; ?>" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%">Pregunta <i class="far fa-check-square" style="color: #007bff"></i> </label>
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+
+                            <div class="row align-items-center my-2">
+                                <div class="col">
+                                    <input value="<?= $question['question']; ?>" class="form-control qTitle" type="text" id="question<?= $question_id; ?>">
+                                </div>
+                                <div class="col">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-check-square"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;" id="mcq_content<?= $question_id; ?>">
+
+                            <div class="row align-items-center my-2" id="mcq_content<?= $question_id; ?>">
                             <?php foreach ($question['options'] as $option) : ?>
                                 <script>
                                     $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 80);
                                     $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 80);
                                     $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 80);
                                 </script>
-                                <div class="group se">
-                                    <i class="far fa-square" style="float: left;font-size: 30px;margin-top: 10px;margin-right: 10px;color: #0079ca;margin-left: 5px"></i>
-                                    <input type="text" value="<?= $option; ?>" class="shadow qOption" id="option<?= $option_id; ?>" maxlength="30" style="height: 30px;margin-top: 10px;" required>
-                                    <span class="highlight"></span>
-                                    <span class="bar" style="background:red;margin-left: 45px;"></span>
-                                    <label class="label">Opción </label>
+                                <div class="form-group group se">
+                                    <div class="col d-flex align-items-center gap-2">
+                                        <i class="bi bi-square"></i>
+                                        <input class="form-control qOption mt-4" type="text" value="<?= $option; ?>" id="option<?= $option_id; ?>" maxlength="30" required>
+                                        <label for="">Opción</label>
+                                        </div>
                                 </div>
-                                <button type="button" class="Del_OptQ close" id="Del_mcq_question<?= $question_id; ?>_option<?= $option_id; ?>" aria-label="Close" style="margin-left: 10px;margin-top: -10px">
-                                    <span aria-hidden="true">&times;</span></button>
+                                    
+                                <button id="Del_mcq_question<?= $question_id; ?>_option<?= $option_id; ?>" class="Del_OptQ close btn text-danger text-end"
+                                type="button"><i class="bi bi-trash-fill"></i></button>
+
                                 <script>
                                     questions[<?= $question_id; ?>].push('option<?= $option_id; ?>');
                                 </script>
                                 <?php $option_id++; ?>
                             <?php endforeach; ?>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <button class="btn btn-success cxq" id="add_opt<?= $question_id; ?>" style="height: 50px;font-weight: bold;margin-left: 32%">Agregar</button>
-                            <label class="switch" style="margin-left: 27%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else: ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+
+                            </div>
+                            
+
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                                <button class="btn btn-success cxq" id="add_opt<?= $question_id; ?>" style="background-color:#7c942c !important; font-size:14px;">Agregar</button>
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,30 +274,34 @@
             <script>
                 questions[<?= $question_id; ?>] = ['open', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 210px">
-                <div class="row justify-content-center mb-3 " id=question_nb<?= $question_id; ?> style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 50%;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end">
-                            <button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input id="question<?= $question_id; ?>" value="<?= $question['question']; ?>" type="text" class="qTitle" class="shadow" maxlength="70" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%"> Pregunta <i class="fas fa-question" style="color: #007bff"></i> </label>
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+
+                            <div class="row align-items-center my-2">
+                                <div class="col-8">
+                                    <input value="<?= $question['question']; ?>" class="form-control qTitle" type="text" id="question<?= $question_id ?>">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-question"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <label class="switch" style="margin-left: 80%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else: ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -302,30 +311,34 @@
             <script>
                 questions[<?= $question_id; ?>] = ['valoration', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 210px">
-                <div class="row justify-content-center mb-3 " id=question_nb<?= $question_id; ?> style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 50%;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end">
-                            <button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input id="question<?= $question_id; ?>" value="<?= $question['question']; ?>" type="range" min="0" max="5" step="1" class="qTitle" class="shadow" maxlength="70" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%"> Pregunta <i class="fas fa-question" style="color: #007bff"></i> </label>
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+
+                            <div class="row align-items-center my-2">
+                                <div class="col-8">
+                                    <input value="<?= $question['question']; ?>" class="form-control qTitle" type="text" id="question<?= $question_id ?>">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <label class="switch" style="margin-left: 80%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else: ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -336,30 +349,34 @@
             <script>
                 questions[<?= $question_id; ?>] = ['date', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 210px">
-                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>" style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-6 col-lg-5 col-xl-4 col-12 shadow" style="height: 50%;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end">
-                            <button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input id="question<?= $question_id; ?>" value="<?= $question['question']; ?>" type="text" class="qTitle" class="shadow" maxlength="70" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%"> Pregunta <i class="far fa-calendar-alt" style="color: #007bff"></i></label>
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+            
+                            <div class="row align-items-center my-2">
+                                <div class="col-8">
+                                    <input id="question<?= $question_id; ?>" value="<?= $question['question']; ?>" class="form-control qTitle" type="text">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-calendar4-event"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <label class="switch" style="margin-left: 80%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else: ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+            
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
+            
                         </div>
                     </div>
                 </div>
@@ -368,62 +385,71 @@
             <script>
                 questions[<?= $question_id; ?>] = ['time', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 210px">
-                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>" style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-4 shadow" style="height: 50%;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end">
-                            <button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input type="text" value="<?= $question['question']; ?>" id="question<?= $question_id; ?>" class="qTitle" class="shadow" maxlength="70" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%"> Pregunta <i class="far fa-clock" style="color: #007bff"></i></label>
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+
+                            <div class="row align-items-center my-2">
+                                <div class="col-8">
+                                    <input id="question<?= $question_id; ?>" value="<?= $question['question']; ?>" class="form-control qTitle" type="text">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-clock"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <label class="switch" style="margin-left: 80%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else: ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
         <?php elseif ($question['type'] == 'range') : ?>
             <script>
                 questions[<?= $question_id; ?>] = ['range', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 210px">
-                <div class="row justify-content-center mb-3 " id="question_nb<?= $question['question']; ?>" style="height: 360px;margin-top: 5px;">
-                    <div class="col-md-4 shadow" style="height: 50%;background-color: white;margin-top: 10px" id="mcq_container<?= $question_id; ?>">
-                        <div class="row justify-content-end">
-                            <button type="button" class="close" aria-label="Close" style="float: right;" id="Del_Q<?= $question_id; ?>">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="row justify-content-center" style="height: 70px;">
-                            <div class="group">
-                                <input type="text" value="<?= $question['question']; ?>" id="question<?= $question_id ?>" class="qTitle" class="shadow" maxlength="70" required>
-                                <span class="highlight"></span> <span class="bar"></span>
-                                <label class="label" style="left: 32%"> Pregunta <i class="fas fa-ruler-horizontal" style="color: #007bff"></i></label>
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
+                <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
+                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                        <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
+                            <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
+
+                            <div class="row align-items-center my-2">
+                                <div class="col-8">
+                                <input type="text" value="<?= $question['question']; ?>" id="question<?= $question_id ?>" class="form-control qTitle" maxlength="70" required>
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Pregunta</label>
+                                    <i class="bi bi-arrow-left-right"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center" style="height: 50px;margin-top: 20px" id="mcq_footer">
-                            <label class="switch" style="margin-left: 80%;margin-top: 25px">
-                                <?php if ( $question['required'] == 1 ) : ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>
-                                <?php else: ?>
-                                    <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>
-                                <?php endif; ?>
-                                <p style="margin-top: 20px;margin-left: -5px;font-size: 12px;color: rgb(24,24,24);">Necesaria</p>
-                            </label>
+
+                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                                            <label class="switch">
+                                            <?php if ( $question['required'] == 1 ) : ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox" checked> <span class="slider round"></span>Requerida
+                                            <?php else: ?>
+                                                <input id="question<?= $question_id; ?>required" required type="checkbox"> <span class="slider round"></span>Requerida
+                                            <?php endif; ?>
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -434,6 +460,35 @@
     <?php endforeach; ?>
     </div>
 
+<div class="row justify-content-center bg-dark" id="container_add">
+    <div class="col-12 text-center bg-light">
+        <div class="accordion border-0 p-0 m-0" id="accordionExample">
+            <div class="accordion-item border-0 p-0 m-0 bg-light">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="btn btn-sm bg-blue my-4" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        + Agregar
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show border-0 p-0 m-0"
+                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body border-0 p-0 m-0 bg-light">
+                        <ul class="nav flex-row justify-content-center bg-light gap-2">
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="MCQ" class="Q"><i class="far fa-dot-circle" style="color: #007bff"></i> MCQ</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="CXQ" class="Q"><i class="far fa-check-square" style="color: #007bff"></i> Checkbox</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="OQ" class="Q"><i class="fas fa-question" style="color: #007bff"></i> Abierta</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="DATEQ" class="Q"><i class="far fa-calendar-alt" style="color: #007bff"></i> Fecha</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="TIMEQ" class="Q"><i class="far fa-clock" style="color: #007bff"></i> Tiempo</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="RANGEQ" class="Q"><i class="fas fa-ruler-horizontal" style="color: #007bff"></i> Rango</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a class="nav-link text-dark" href=""><i class="bi bi-border-all"></i> Matriz</a></li>
+                            <li class="nav-item bg-light mt-2 rounded shadow-sm"><a href="#bottom" id="VALQ" class="Q"><i class="bi-star-fill" style="color: #007bff"></i> Valoración</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script>
         question_nb = <?= $question_id; ?>;
@@ -1287,6 +1342,4 @@
             <h2 class="display-5 text-center" style="font-family: 'Noto Sans', sans-serif;" >To get amazing Data Vizualisation</h2>
         </div>
     </div>
-
 <?php endif; ?>
-

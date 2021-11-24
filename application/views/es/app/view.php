@@ -148,9 +148,9 @@
             <script>
                 questions[<?= $question_id; ?>] = ['mcq', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <<div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 270px;">
+            <<div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 340px;">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
 
@@ -167,14 +167,14 @@
                             <div class="row align-items-center my-2" id="mcq_content<?= $question_id; ?>">
                             <?php foreach ($question['options'] as $option) : ?>
                                 <script>
-                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 80);
-                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 80);
-                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 80);
+                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 100);
+                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 100);
+                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 100);
                                 </script>
                                 <div class="form-group group se">
                                     <div class="col d-flex align-items-center gap-2">
                                         <i class="bi bi-circle"></i>
-                                        <input class="form-control qOption mt-4" type="text" value="<?= $option; ?>" id="option<?= $option_id; ?>" maxlength="30" required>
+                                        <input class="form-control qOption" type="text" value="<?= $option; ?>" id="option<?= $option_id; ?>" maxlength="30" required>
                                         <label for="">Opción</label>
                                         </div>
                                 </div>
@@ -192,7 +192,7 @@
                             
 
                             <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
-                                <div class="col d-flex align-items-center gap-2 justify-content-start" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2" id="mcq_footer">
                                 <button class="btn btn-success mcq" id="add_opt<?= $question_id; ?>" style="background-color:#7c942c !important; font-size:14px;">Agregar</button>
                                             <label class="switch">
                                             <?php if ( $question['required'] == 1 ) : ?>
@@ -211,9 +211,9 @@
             <script>
                 questions[<?= $question_id; ?>] = ['checkbox', 'question<?= $question_id; ?>', 'question<?= $question_id; ?>required'];
             </script>
-            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 270px;">
+            <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>" style="width: 100%;height: 340px;">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
 
@@ -230,14 +230,14 @@
                             <div class="row align-items-center my-2" id="mcq_content<?= $question_id; ?>">
                             <?php foreach ($question['options'] as $option) : ?>
                                 <script>
-                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 80);
-                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 80);
-                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 80);
+                                    $('#mcq_container<?= $question_id; ?>').height($('#mcq_container<?= $question_id; ?>').height() + 100);
+                                    $('#content_here<?= $question_id; ?>').height($('#content_here<?= $question_id; ?>').height() + 100);
+                                    $('#mcq_content<?= $question_id; ?>').height($('#mcq_content<?= $question_id; ?>').height() + 100);
                                 </script>
                                 <div class="form-group group se">
                                     <div class="col d-flex align-items-center gap-2">
                                         <i class="bi bi-square"></i>
-                                        <input class="form-control qOption mt-4" type="text" value="<?= $option; ?>" id="option<?= $option_id; ?>" maxlength="30" required>
+                                        <input class="form-control qOption" type="text" value="<?= $option; ?>" id="option<?= $option_id; ?>" maxlength="30" required>
                                         <label for="">Opción</label>
                                         </div>
                                 </div>
@@ -254,8 +254,8 @@
                             </div>
                             
 
-                            <div class="row align-items-center my-2 py-4 px-2" id="mcq_footer">
-                                <div class="col d-flex align-items-center gap-2 justify-content-end" id="mcq_footer">
+                            <div class="row align-items-center my-2 py-4" id="mcq_footer">
+                                <div class="col d-flex align-items-center gap-2" id="mcq_footer">
                                 <button class="btn btn-success cxq" id="add_opt<?= $question_id; ?>" style="background-color:#7c942c !important; font-size:14px;">Agregar</button>
                                             <label class="switch">
                                             <?php if ( $question['required'] == 1 ) : ?>
@@ -276,7 +276,7 @@
             </script>
             <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
 
@@ -313,7 +313,7 @@
             </script>
             <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
 
@@ -351,7 +351,7 @@
             </script>
             <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
             
@@ -387,7 +387,7 @@
             </script>
             <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
 
@@ -424,7 +424,7 @@
             </script>
             <div class="container-fluid mt-3" id="content_here<?= $question_id; ?>">
                 <div class="row justify-content-center mb-3 " id="question_nb<?= $question_id; ?>">
-                    <div class="col-lg-6 col-10" id="mcq_container<?= $question_id; ?>">
+                    <div class="col-lg-6 col-11" id="mcq_container<?= $question_id; ?>">
                         <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
                             <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close" id="Del_Q<?= $question_id; ?>"></button>
 
@@ -495,7 +495,7 @@
         option_nb = <?= $option_id; ?>;
     </script>
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn"><i class="bi bi-arrow-up-circle-fill h2"></i></button>
 
     <footer >
         <button id="update" class="btn btn-success">

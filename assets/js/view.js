@@ -104,7 +104,7 @@ if($(this).attr('id')=="MCQ"){
   let html = '';
   html += ` <div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -155,7 +155,7 @@ else if($(this).attr('id')=="CXQ"){
   let html = '';
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -204,7 +204,7 @@ else if($(this).attr(`id`)=="OQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -239,7 +239,7 @@ else if($(this).attr(`id`)=="DATEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -275,7 +275,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -310,7 +310,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -345,7 +345,7 @@ else if($(this).attr(`id`)=="TIMEQ"){
   let html = ``;
   html += `<div class="container-fluid mt-3" id="content_here${question_nb}">
   <div class="row justify-content-center mb-3 " id="question_nb${question_nb}">
-      <div class="col-lg-6 col-10" id="mcq_container${question_nb}">
+      <div class="col-lg-6 col-11" id="mcq_container${question_nb}">
           <div class="card border-0 shadow-sm bg-light px-4 d-flex my-4">
               <button type="button" class="btn-close my-2 ms-auto btn-sm close" aria-label="Close"
                   id="Del_Q${question_nb}"></button>
@@ -414,11 +414,11 @@ $(document).on('click', "[id^='add_opt']", function(){
   if ( questions[Id].length < 13 ){ // Condition Size
     if(QType=="mcq"){
 
-      $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+80});
+      $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+100});
 
-      $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+80});
+      $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+100});
 
-      $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+80});
+      $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+100});
       
       let html = '';
       html += `<div class="form-group group se">
@@ -437,11 +437,11 @@ $(document).on('click', "[id^='add_opt']", function(){
     }
     else if(QType=="cxq"){
 
-      $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+80});
+      $("#mcq_container"+[Id]).animate({height: $("#mcq_container"+[Id]).height()+100});
 
-      $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+80});
+      $("#content_here"+[Id]).animate({height: $("#content_here"+[Id]).height()+100});
 
-      $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+80});
+      $("#mcq_content"+[Id]).animate({height: $("#mcq_content"+[Id]).height()+100});
 
       let html = '';
       html += `<div class="form-group group se">
@@ -491,9 +491,9 @@ $(document).on('click', "[class^='Del_OptQ']", function(){
     id = id.replace(/mcq_container/, '');
 
     data.remove();//removes cross
-    $("#mcq_content"+[id]).animate({height: $("#mcq_content"+[id]).height()-80});
-    $("#mcq_container"+[id]).animate({height: $("#mcq_container"+[id]).height()-80});
-    $("#content_here"+[id]).animate({height: $("#content_here"+[id]).height()-80});
+    $("#mcq_content"+[id]).animate({height: $("#mcq_content"+[id]).height()-100});
+    $("#mcq_container"+[id]).animate({height: $("#mcq_container"+[id]).height()-100});
+    $("#content_here"+[id]).animate({height: $("#content_here"+[id]).height()-100});
       
     // Delete option from array
     // Del_mcq_question1_option2

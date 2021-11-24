@@ -892,7 +892,8 @@
   top: 0;
   width: 210px;
   z-index: 4000;
-  background: #3E5367;
+  background: var(--blue-color);
+  filter: opacity(.9);
   display: none; }
 
 .nav-sm ul.nav.child_menu li {

@@ -166,7 +166,7 @@
 <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn"><i class="bi bi-arrow-up-circle-fill h2"></i></button>
 
 
-<footer class="row justify-content-center p-0 m-0 bg-light">
+<footer class="row justify-content-center p-2 m-2 bg-light">
     <div class="col-6 text-center">
     <button id="send" class="btn btn-success btn-sm">
         Enviar <i class='fas fa-paper-plane'></i>

@@ -137,7 +137,7 @@ if($(this).attr('id')=="MCQ"){
                   <div class="col d-flex align-items-center gap-2" id="mcq_footer">
                   <button class="btn btn-success mcq" id="add_opt${question_nb}" style="background-color:#7c942c !important; font-size:14px;">+ Agregar</button>
                           <label class="switch">
-                          <input id="question${question_nb}" required type="checkbox" checked> <span
+                          <input id=question${question_nb}required type="checkbox" checked> <span
                               class="slider round"></span>Requerida
                       </label>
                   </div>
@@ -188,7 +188,7 @@ else if($(this).attr('id')=="CXQ"){
                   <div class="col d-flex align-items-center gap-2" id="mcq_footer">
                   <button class="btn btn-success cxq" id="add_opt${question_nb}" style="background-color:#7c942c !important; font-size:14px;">+ Agregar</button>
                           <label class="switch">
-                          <input id="question${question_nb}" required type="checkbox" checked> <span
+                          <input id=question${question_nb}required type="checkbox" checked> <span
                               class="slider round"></span>Requerida
                       </label>
                   </div>

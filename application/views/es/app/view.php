@@ -497,7 +497,7 @@
 
 <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn"><i class="bi bi-arrow-up-circle-fill h2"></i></button>
 
-    <footer >
+    <footer class="p-2 m-2 bg-light">
         <button id="update" class="btn btn-success">
             Actualizar <i class='fa fa-refresh' aria-hidden="true"></i> 
         </button>

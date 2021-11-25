@@ -984,15 +984,15 @@
 <?php if( count($multiple_choices) > 0 ) : ?>
     <div class="container-fluid" >
         <div class="row justify-content-center mt-1" id="row1" style="height: 100%;">
-            <div class="col-md-12 col-lg-6 mr-0 mr-lg-4" id="world" style="background-color: white;height: 100%;"> 
-                <div class="m-4">
+            <div class="col-md-12 col-lg-4 mr-0 mr-lg-4" id="world" style="background-color: white;height: 100%;"> 
+                <div class="mt-4">
                     <h3><b class="text-green">Título: </b><?=$title;?></h3>
                     <h4><b class="text-green">Objetivo: </b><?=$objective;?></h4>
                     <h4><b class="text-green">Descripción: </b><?=$description;?></h4>
                 </div>
             </div>
             
-            <div class="col-md-12 col-lg-4 ml-0 ml-lg-4 mt-3 mt-lg-0 mb-5" id="bar" style="background-color: white;height: 100%;"> 
+            <div class="col-md-12 col-lg-6 ml-0 ml-lg-4 mt-3 mt-lg-0 mb-5" id="bar" style="background-color: white;height: 100%;"> 
                 <div class="row justify-content-center mt-4 mb-3" style="height:50px;max-width:1918px">
                     <div style="width:150px; height:100%;background-color:white" align="center">
                         <p style="margin-top:10px;">
@@ -1023,7 +1023,7 @@
     <div class="container-fluid mt-1" >
         <div class="row justify-content-center mt-3" id="row2" style="height: 100%;">
             
-            <div class="col-md-12 col-lg-3 mr-0 mr-lg-4 shadow-sm" id="round" style="height: 100%;background-color: white"> 
+            <div class="col-md-12 col-lg-6 mr-0 mr-lg-4 shadow-sm" id="round" style="height: 100%;background-color: white"> 
 
                 <div class="row justify-content-center mt-4 mb-3" style="height:50px;max-width:1918px">
                     <div style="width:150px; height:100%;background-color:white">
@@ -1048,7 +1048,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-7 ml-0 ml-lg-4  mt-lg-0 mt-3 shadow-sm" id="line" style="background-color: white;height: 100%;"> 
+            <div class="col-md-12 col-lg-4 ml-0 ml-lg-4  mt-lg-0 mt-3 shadow-sm" id="line" style="background-color: white;height: 100%;"> 
                 <div id="linediv" style="height: 100%;" ></div>
             </div>
         </div>

@@ -1,4 +1,14 @@
+<script>
+  
+    function pruebaDivAPdf(nameSurvey) {
+      var pdf = new jsPDF('p', 'pt', 'letter');
+      pdf.addHTML($('#carouselExampleIndicators')[0], function () {
+          pdf.save(nameSurvey);
+      });
+    }
+</script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <!-- jQuery -->
     <script src="<?=base_url('assets/vendors/jquery/dist/jquery.min.js');?>"></script>
     <!-- Bootstrap -->

@@ -625,8 +625,12 @@
     <div id="bottom"></div>
 </div>
 
-
 <div style="display: none;" id="answers_container"> <!-- ICI -->
+<div class="row d-flex justify-content-center">
+    <div class="col-6 d-flex justify-content-center">
+        <a href="javascript:pruebaDivAPdf('<?=$title;?>')" class="btn btn-danger">Pasar a PDF</a>
+    </div>
+</div>
     <div class="row justify-content-center p-2 mb-2" style="height:100%;max-width:1918px">
         <div class="text-center">
             <h6>
@@ -1134,6 +1138,7 @@
             pieSeries.hiddenState.properties.opacity = 1;
             pieSeries.hiddenState.properties.endAngle = -90;
             pieSeries.hiddenState.properties.startAngle = -90;
+            chart.exporting.menu = new am4core.ExportMenu();
         });
 
         am4core.ready(function(){ // Bar Chart
@@ -1227,7 +1232,9 @@
                     }
                 }
             }
+        chart.exporting.menu = new am4core.ExportMenu();
         });
+        
         am4core.ready(function(){ // Line Chart
             var dates = <?= json_encode($dates); ?> ;
             am4core.useTheme(am4themes_animated);

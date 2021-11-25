@@ -85,6 +85,18 @@
 
 	</div>
 	</div>
+
+	<div class="row justify-content-center align-items-center vh-100">
+		<div class="col-md-8 col-6">
+			<video id="video" src="<?=base_url();?>assets/videos/presentacion.mp4" poster="<?=base_url();?>assets/img/logo_paper.png" controls playsinline></video>
+			<style>
+				#video{
+					width:100%;
+					height:100%;
+				}
+			</style>
+		</div>
+	</div>
 	
 </div>
 

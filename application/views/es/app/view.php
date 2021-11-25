@@ -683,8 +683,8 @@
                                 <p class="fw-bolder">Respuestas:</p>
                                 <?php foreach($question['options'] as $option): ?>
                                     <div class="group se d-flex justify-content-center" > 
-                                        <div class="d-flex align-items-center">
-                                            <div>
+                                        <div style="width:100%;">
+                                                <div style="float:left;">
                                                 <?php if ( $a == $option ) : ?>
                                                     <i class="fa fa-circle"></i>    
                                                 <?php else : ?>
@@ -1344,9 +1344,9 @@
 <?php else: ?>
     <div id="summary_container">
         <div class="jumbotron mt-5">
-            <h1 class="display-4 text-center" style="font-family: 'Noto Sans', sans-serif;">Add some MCQ / Checkbox to your survey</h1>
+            <h1 class="display-4 text-center" style="font-family: 'Noto Sans', sans-serif;">Agrega MCQ / Checkbox a tu encuesta</h1>
             <br>
-            <h2 class="display-5 text-center" style="font-family: 'Noto Sans', sans-serif;" >To get amazing Data Vizualisation</h2>
+            <h2 class="display-5 text-center" style="font-family: 'Noto Sans', sans-serif;" >para obtener visualizaciones gráficas</h2>
         </div>
     </div>
 <?php endif; ?>

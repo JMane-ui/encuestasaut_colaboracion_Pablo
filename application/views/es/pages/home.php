@@ -1,7 +1,7 @@
 <div class="container">
-	<div class="row justify-content-center align-items-center vh-100">
+	<div class="row justify-content-center align-items-center">
 
-	<div class="col-md-4 col-12 bg-green rounded" id="login_form">
+	<div class="col-md-4 col-12 bg-green rounded mt-4" id="login_form">
 
 		<form id="login-form" class="fw-bolder p-2">
 
@@ -34,11 +34,11 @@
 
 	</div>
 
-	<div class="col-md-2 col-12 text-center">
+	<div class="col-md-2 col-12 text-center m-2">
 		<h2 class="fw-bolder">O</h2>
 	</div>
 
-	<div class="col-md-4 col-12 bg-blue rounded" id="register_form">
+	<div class="col-md-4 col-12 bg-blue rounded mt-4" id="register_form">
 		<form id="register-form" class="fw-bolder p-2">
 			<div class="row justify-content-center my-4" style="height: 10%;">
 				<div class="col-12 " style="text-align: center;">
@@ -86,8 +86,8 @@
 	</div>
 	</div>
 
-	<div class="row justify-content-center align-items-center vh-100">
-		<div class="col-md-8 col-6">
+	<div class="row justify-content-center align-items-center mt-4">
+		<div class="col-md-6 col-8">
 			<video id="video" src="<?=base_url();?>assets/videos/presentacion.mp4" poster="<?=base_url();?>assets/img/logo_paper.png" controls playsinline></video>
 			<style>
 				#video{

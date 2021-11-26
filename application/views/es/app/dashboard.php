@@ -13,7 +13,7 @@
         <div class="load">
           <hr/><hr/><hr/><hr/>
          </div>
-         <h1 style="position: absolute;top: 60%;left: 43.5%; font-family:'Helvetica Neue'; ">Solucionestai Módulo encuestas</h1>
+         <h1 style="position: absolute;top: 50%;left: 25%; font-family:'Helvetica Neue'; ">Solucionestai Módulo encuestas</h1>
     </div>
 
     <div class="container-fluid" style="background-color: black;position: absolute;width: 100%;height: 100%;background-color: rgba(50,50,50,0.8);z-index: 3;position: fixed;display: none;" id="send_form">

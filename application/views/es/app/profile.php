@@ -2,7 +2,7 @@
     <div class="load" >
         <hr/><hr/><hr/><hr/>
         </div>
-        <h1 style="position: absolute;top: 60%;left: 43.5%; font-family:'Helvetica Neue'; ">Solucionestai Módulo encuestas</h1>
+        <h1 style="position: absolute; top: 50%;left: 25%; font-family:'Helvetica Neue'; ">Solucionestai Módulo encuestas</h1>
 </div>
 
 <!--

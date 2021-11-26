@@ -36,15 +36,6 @@ class Survey_model extends CI_Model{
         }
     }
 
-    public function getLocations($form_id)
-    {
-        $this->db->select('country , city , lat , lon');
-        $this->db->from('answer_forms');
-        $this->db->where('question_form_id' , $form_id);
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
     public function get_distinct_dates()
     {
         $sql = "select distinct( to_char( created_at , 'yyyy-mm-dd' ) ) as date from answer_forms";

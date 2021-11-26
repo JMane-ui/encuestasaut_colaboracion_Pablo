@@ -70,13 +70,6 @@ class Surveys extends CI_Controller{
             ));
         }
         $data['dates'] = $d;
-        $loc = $this->survey_model->getLocations($form_id);
-        $locations = array();
-        foreach($loc as $l){
-            if ($l['country'] !== NULL)
-                array_push($locations , $l);
-        }
-        $data['locations'] = $locations;
 
         $this->session->set_userdata('page','/view-survey'.'/'.$form_id);
         

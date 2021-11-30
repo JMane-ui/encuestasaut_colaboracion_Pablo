@@ -15,7 +15,10 @@
     <script src="<?=base_url('assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js');?>"></script>
     <!-- NProgress -->
     <script src="<?=base_url('assets/vendors/nprogress/nprogress.js');?>"></script>
-    
+    <!-- bootstrap-daterangepicker -->
+    <script src="<?=base_url('assets/vendors/moment/min/moment.min.js');?>"></script>  
+    <script src="<?=base_url('assets/vendors/bootstrap-daterangepicker/daterangepicker.js');?>"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url('assets/build/js/custom.min.js');?>"></script>
 	
